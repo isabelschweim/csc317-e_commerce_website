@@ -2,6 +2,7 @@
     width: 250px;
     height: auto;
     display: flex;
+    margin: 20;
 }
 
 .products {
@@ -21,4 +22,9 @@
 #products li {
     margin: 10px;
     flex: 1;
+}
+
+#products li p {
+    width: 249px;
+    font-size: 0.6em; /* Adjust the font size as needed */
 }
