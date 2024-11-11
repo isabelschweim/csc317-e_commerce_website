@@ -41,7 +41,7 @@ section h2 {
 }
 
 #products li {
-    border-radius: 2px;
+    border-radius: 3px;
     background-color: #CCD5AE;
     display: flex;
     flex-direction: column; 
