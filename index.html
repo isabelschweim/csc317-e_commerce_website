@@ -6,6 +6,7 @@
     <title>E-Commerce Website</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="index.js" defer></script>
 </head>
 <body>
     <header>
@@ -19,23 +20,36 @@
                     <li>
                         <img src="Resources/1.jpg" alt="Product 1">
                         <h3>Karenosaurus Rex</h3>
-                        <p>Karenosaurus Rex is a formidable yet theatrically inclined creature, ever poised to voice her discontent. With arms too small to reach her lofty demands, she prowls for the slightest injustice to amplify, her sense of entitlement towering over her tiny frame. Always ready to escalate, she is the embodiment of drama, forever in search of a cause to champion.</p>
-                        <p class="price">$4.99</p> <!-- Changed to class="price" -->
-                        <button>Bid</button>
+                        <p>Karenosaurus Rex is a formidable yet theatrically inclined creature, ever poised to voice her discontent. 
+                            With arms too small to reach her lofty demands, she prowls for the slightest injustice to amplify her sense of entitlement towering over her tiny frame. 
+                            Always ready to escalate, she is the embodiment of drama, forever in search of a cause to champion.</p>
+                        <p class="price">$4.99</p>
+                        <button class="bid-btn" onclick="bidPlaced(event)">Bid</button>
+
                     </li>
                     <li>
                         <img src="Resources/2.jpg" alt="Product 2">
                         <h3>The Witness</h3>
-                        <p>The Witness was a dinosaur who met his end when the meteor struck, blissfully unaware of the agonizing monotony of the 9-to-5. Modern-day creatures often muse that he was the fortunate one—never burdened by the weight of mortgages, taxes, or the crushing weight of rent. In one swift, dramatic moment, he was freed from the relentless grind of existence, leaving those who remain to wonder if it’s better to face oblivion than to endure the endless cycle of deadlines and drudgery.</p>
-                        <p class="price">$29.99</p> <!-- Changed to class="price" -->
-                        <button>Bid</button>
+                        <p>The Witness was a dinosaur who met his end when the meteor struck, 
+                            blissfully unaware of the agonizing monotony of the 9-to-5. 
+                            Modern-day creatures often muse that he was the fortunate one—never burdened by the weight of mortgages, taxes, or the crushing weight of rent. 
+                            In one swift, dramatic moment, he was freed from the relentless grind of existence, 
+                            leaving those who remain to wonder if it’s better to face oblivion than to endure the endless cycle of deadlines and drudgery.</p>
+                        <p class="price">$29.99</p>
+                        <button class="bid-btn" onclick="bidPlaced(event)">Bid</button>
+
                     </li>
                     <li>
                         <img src="Resources/3.jpg" alt="Product 3">
                         <h3>Adminosaurus</h3>
-                        <p>The Adminosaurus is a creature forged for precision, yet eternally ensnared in the ceaseless cycle of office life. With an unyielding drive to organize, file, and manage, this dinosaur teeters on the brink of collapse. Whether it's hunting down elusive documents, battling an endless flood of emails, or navigating the labyrinth of office protocols, the Adminosaurus is always in motion—undaunted, determined to keep the wheels of bureaucracy turning smoothly.</p>
-                        <p class="price">$19.99</p> <!-- Changed to class="price" -->
-                        <button>Bid</button>
+                        <p>The Adminosaurus is a creature forged for precision, 
+                            yet eternally ensnared in the ceaseless cycle of office life. 
+                            With an unyielding drive to organize, file, and manage, this dinosaur teeters on the brink of collapse. 
+                            Whether it's hunting down elusive documents, battling an endless flood of emails, or navigating the labyrinth of office protocols, 
+                            the Adminosaurus is always in motion—undaunted, determined to keep the wheels of bureaucracy turning smoothly.</p>
+                        <p class="price">$19.99</p>
+                        <button class="bid-btn" onclick="bidPlaced(event)">Bid</button>
+
                     </li>
                 </ul>
             </div>
