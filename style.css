@@ -1,6 +1,11 @@
 body {
     font-family: 'Roboto', sans-serif;
+    background-image: url('Resources/main_BG.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
+
 
 #products ul {
     list-style-type: none;
@@ -12,11 +17,12 @@ body {
 }
 
 #products li {
+    background-color:bisque;
     display: flex;
     flex-direction: column; 
     margin: 10px;
     width: 30%;
-    border: 1px solid #ddd;
+    border: 1px solid #9c1414;
     padding: 10px;
     box-sizing: border-box;
 }
@@ -35,6 +41,12 @@ body {
 #products p {
     font-size: 0.9em;
     margin: 5px 0;
+}
+
+.price {
+    font-size: 1.2em;
+    margin: 10px 0;
+    font-weight: bold;
 }
 
 button {
