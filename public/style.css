@@ -7,6 +7,49 @@ body {
     background-repeat: no-repeat;
 }
 
+/* This ensures nav bar is always at the top of the page, even when scrolling down. */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    background-color: #aab290;
+    z-index: 1000; /* Ensure the navbar is above other content */
+    width: 100%;
+    left: 0; /* Start from the left edge */
+    right: 0; /* Stretch to the right edge */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav li {
+    padding: 1px;
+    padding-bottom: 1px;
+    margin: 0 15px; /* Space between nav items */
+    position: relative; /* Position relative for pseudo-elements */
+}
+
+nav a {
+    color: #f2f2f2;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+
+}
+
+/* Navigation link styles */
+nav a:hover {
+    color: #9EE493;
+}
 header h1 {
     text-align: center;
     /* color: #fefae0; */
