@@ -55,6 +55,19 @@ nav a {
 nav a:hover {
     color: #9EE493;
 }
+
+#headerLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header img {
+    height: 200px; /* Adjust the height of the logo */
+    margin-right: 20px; /* Space between the logo and the text */
+}
+
+
 header h1 {
     color: rgba(250, 185, 45, 0.866);
     text-align: left;
