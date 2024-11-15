@@ -13,9 +13,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Route to render homepage
 app.get('/', (req, res) => {
   const products = [
-    { name: 'Karenosaurus Rex', price: 4.99, image: '1.jpg' },
-    { name: 'The Witness', price: 29.99, image: '2.jpg' },
-    { name: 'Carnotadministrus', price: 19.99, image: '3.jpg' }
+    { name: 'Karenosaurus Rex', price: 4999.99, image: '1.jpg' },
+    { name: 'The Witness', price: 2999.99, image: '2.jpg' },
+    { name: 'Carnotadministrus', price: 1999.99, image: '3.jpg' }
   ];
   res.render('index', { products });
 });

@@ -6,18 +6,14 @@
     <title>E-Commerce Website by Isabel, Ryan, Steven, Tony</title>
     <link rel="stylesheet" href="/css/style.css"> <!-- Correct path to styles.css -->
     <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> -->
-    <script src="/js/index.js" defer></script> <!-- Path to JS -->
-    <!-- Back to Top Button -->
-    <button id="backToTopBtn" title="Go to top"></button>
 </head>
 <body>
     <header>
-        <div id="headerLogo"> 
+        <a href="/" id="headerLogo"> 
             <img src="/images/Logo.png" alt="Logo">
-        </div>
+        </a>
         <div id="headerBG"></div> 
     </header>
-
     <main>
         <nav>
             <ul id="nav-links">
@@ -39,7 +35,7 @@
                             <h3><%= product.name %></h3>
                             <p><%= product.description %></p>
                             <p class="price">$<%= product.price %></p>
-                            <button class="bid-btn">Bid</button>
+                            <button class="bid-btn">Add to cart</button>
                         </li>
                     <% }); %>
                 </ul>
@@ -49,6 +45,7 @@
 
     <footer>
         <p>&copy; 2024 E-Commerce Website. All rights reserved.</p>
+        <script src="/js/main.js"></script>
     </footer>
 </body>
 </html>
