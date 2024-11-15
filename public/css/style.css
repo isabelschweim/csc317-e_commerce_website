@@ -160,23 +160,24 @@ section h2 {
 }
 
 button {
-    
     color: black;
     background: linear-gradient(to bottom, #fee967 0%, #fec168 100%);
     border: 2px solid rgb(30, 30, 30);
-    display: inline-block;
+    display: block; /* Change from inline-block to block */
     position: relative;
-    margin: 10px;
+    margin: 10px auto; /* Auto margin on left and right to center */
     text-align: center;
     text-decoration: none;
     border-radius: 30px;
     transition: all 0.15s ease;
-    padding: 0 40px;
+    padding: 0 20px;
+    max-width: 320px; /* Set a max-width to prevent it from getting too wide */
     height: 70px;
     font: bold 40px/42px Arial, sans-serif;
     box-shadow: 1px 2px 1px rgba(0, 0, 0, .29);
     cursor: pointer; /* Ensures pointer cursor on hover */
 }
+
 
 /* Hover state */
 button:hover {
