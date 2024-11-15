@@ -20,6 +20,21 @@ app.get('/', (req, res) => {
   res.render('index', { products });
 });
 
+// Route to render About page
+app.get('/about', (req, res) => {
+  res.render('about'); // Render the about.ejs template
+});
+
+// Route to render Search page
+app.get('/search', (req, res) => {
+  res.render('search'); // Render the search.ejs template
+});
+
+// Route to render FAQ page
+app.get('/faq', (req, res) => {
+  res.render('faq'); // Render the faq.ejs template
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
