@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Website by Isabel, Ryan, Steven, Tony</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Correct path to styles.css -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> -->
+    <script src="/js/index.js" defer></script> <!-- Path to JS -->
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" title="Go to top"></button>
+</head>
+<body>
+    <header>
+        <div id="headerLogo"> 
+            <img src="/images/Logo.png" alt="Logo">
+        </div>
+        <div id="headerBG"></div> 
+    </header>
+
+    <main>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="#">NFT PRODUCTS</a></li>
+                <li><a href="#">SEARCH</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </nav>
+
+        <section>
+            <div id="products">
+                <h2>Featured NFTs</h2>
+                <ul>
+                    <!-- Loop through products dynamically using EJS -->
+                    <% products.forEach(function(product) { %>
+                        <li>
+                            <img src="/images/<%= product.image %>" alt="<%= product.name %>">
+                            <h3><%= product.name %></h3>
+                            <p><%= product.description %></p>
+                            <p class="price">$<%= product.price %></p>
+                            <button class="bid-btn">Bid</button>
+                        </li>
+                    <% }); %>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 E-Commerce Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,7 +1,7 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Hiragino Sans';
     background-color: #FEFAE0;
     /* background-image: url('Resources/main_BG.jpg'); */
     background-size: cover;
@@ -15,15 +15,20 @@ body, html {
     padding: 0;
 }
 
+
 nav {
     position: sticky;
     top: 0;
-    background-color: #aab290;
+    background-color: #781102;
     z-index: 1000; /* Ensure the navbar is above other content */
     width: 100%;
     left: 0; /* Start from the left edge */
     right: 0; /* Stretch to the right edge */
+    font-family: 'Bebas Neue', sans-serif; /* Change font to Bebas Neue */
+    text-shadow:#000000 1px 2px 2px;
+    
 }
+
 
 nav ul {
     font-weight: bold;
@@ -37,6 +42,7 @@ nav ul {
 }
 
 nav li {
+    
     padding: 1px;
     padding-bottom: 1px;
     /* margin: 0 15px; Space between nav items */
@@ -55,16 +61,21 @@ nav a {
 nav a:hover {
     color: #9EE493;
 }
-
-#headerLogo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/Header_Background.png');
+    background-size: cover;  /* Ensure the background covers the entire div */
+    background-position: center;
+    z-index: -1; /* Ensure the logo appears on top of the background */
 }
 
 header img {
     height: 200px; /* Adjust the height of the logo */
-    margin-right: 20px; /* Space between the logo and the text */
+
 }
 
 
