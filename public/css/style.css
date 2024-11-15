@@ -158,6 +158,7 @@ section h2 {
 }
 
 button {
+    
     color: black;
     background: linear-gradient(to bottom, #fee967 0%, #fec168 100%);
     border: 2px solid rgb(30, 30, 30);
@@ -170,7 +171,7 @@ button {
     transition: all 0.15s ease;
     padding: 0 40px;
     height: 70px;
-    font: bold 20px/22px Arial, sans-serif;
+    font: bold 40px/42px Arial, sans-serif;
     box-shadow: 1px 2px 1px rgba(0, 0, 0, .29);
     cursor: pointer; /* Ensures pointer cursor on hover */
 }
@@ -188,27 +189,3 @@ button:active {
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); /* Reduced shadow on active */
 }
 
-/* Style for the Back to Top button */
-#backToTopBtn {
-    background-image: url('./Resources/back _to_top.png'); /* Set the image */
-    position: fixed;
-    bottom: 10px; /* Distance from the bottom of the page */
-    right: 10px;  /* Distance from the right of the page */
-    z-index: 1000; /* Ensure the button is above other content */
-
-    border: none;
-    padding: 0;  /* Remove padding as it's not needed */
-    border-radius: 10%;  /* Rounded corners */
-    cursor: pointer;
-    display: none; /* Hidden by default, shown when scrolled down */
-
-    background-size: cover; /* Ensure the image covers the button */
-    width: 50px; /* Set a width for the button */
-    height: 50px; /* Set a height for the button */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Optional shadow for better visibility */
-}
-
-
-#backToTopBtn:hover {
-    background-color: #45a049;
-}
