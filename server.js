@@ -3,6 +3,12 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
+// Import route handlers
+const indexRouter = require('./routes/index');
+const aboutRouter = require('./routes/about');
+const searchRouter = require('./routes/search');
+const faqRouter = require('./routes/faq');
+
 // Set up view engine to use EJS
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -10,30 +16,11 @@ app.set('views', path.join(__dirname, 'views'));
 // Serve static files (images, CSS, JS)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Route to render homepage
-app.get('/', (req, res) => {
-  const products = [
-    { name: 'Karenosaurus Rex', price: 4999.99, image: '1.jpg' },
-    { name: 'The Witness', price: 2999.99, image: '2.jpg' },
-    { name: 'Carnotadministrus', price: 1999.99, image: '3.jpg' }
-  ];
-  res.render('index', { products });
-});
-
-// Route to render About page
-app.get('/about', (req, res) => {
-  res.render('about'); // Render the about.ejs template
-});
-
-// Route to render Search page
-app.get('/search', (req, res) => {
-  res.render('search'); // Render the search.ejs template
-});
-
-// Route to render FAQ page
-app.get('/faq', (req, res) => {
-  res.render('faq'); // Render the faq.ejs template
-});
+// Use route handlers
+app.use('/', indexRouter); // Homepage route
+app.use('/', aboutRouter); // About page route
+app.use('/', searchRouter); // Search page route
+app.use('/', faqRouter); // FAQ page route
 
 // Start the server
 app.listen(port, () => {
