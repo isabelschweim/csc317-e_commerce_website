@@ -15,7 +15,6 @@ body, html {
     padding: 0;
 }
 
-
 nav {
     position: sticky;
     top: 0;
@@ -60,7 +59,9 @@ nav {
 }
 
 #nav-links li a:hover {
-    color: #e0e0e0; /* Hover effect for links */
+    color: #e0e0e0; 
+    border-bottom: 9px solid black; 
+    padding-bottom: 0.01em;
 }
 
 nav a {
@@ -70,7 +71,6 @@ nav a {
     display: block;
 
 }
-
 
 header {
     position: relative;
@@ -103,9 +103,6 @@ header img {
     cursor: pointer;
     z-index: 1001; /* Ensure the logo is above other content */
 }
-
-
-
 
 section h2 {
     text-align: center;
@@ -162,13 +159,13 @@ section h2 {
 button {
     color: black;
     background: linear-gradient(to bottom, #fee967 0%, #fec168 100%);
-    border: 2px solid rgb(30, 30, 30);
+    border: 2px solid rgba(0, 0, 0, 0.418);
     display: block; /* Change from inline-block to block */
     position: relative;
     margin: 10px auto; /* Auto margin on left and right to center */
     text-align: center;
     text-decoration: none;
-    border-radius: 30px;
+    border-radius: 25px;
     transition: all 0.15s ease;
     padding: 0 20px;
     max-width: 320px; /* Set a max-width to prevent it from getting too wide */
@@ -182,7 +179,6 @@ button {
 /* Hover state */
 button:hover {
     background: linear-gradient(to bottom, #f0dd60 0%, #c0934f 100%);
-    transform: translateY(-2px); /* Adds a subtle lifting effect */
     box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.3); /* Adds more shadow for hover */
 }
 
