@@ -150,6 +150,8 @@ section h2 {
 }
 
 .price {
+    font-family: 'Bebas Neue', sans-serif;
+    color:#7a1000;
     margin-top: auto;
     font-size: 1.2em;
     margin: 10px 0;

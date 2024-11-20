@@ -1,7 +1,7 @@
 // Ensure that the DOM is fully loaded before running any scripts
 document.addEventListener("DOMContentLoaded", function() {
     // Bid button functionality
-    let bidButtons = document.querySelectorAll(".bid-btn");
+    let bidButtons = document.querySelectorAll(".add-to-cart-btn");
 
     bidButtons.forEach(button => {
         button.addEventListener("click", function(event) {
