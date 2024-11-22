@@ -19,6 +19,7 @@ nav {
     position: sticky;
     top: 0;
     border: 1px solid #ffffff;
+    box-sizing: border-box;
     background-color: #781102;
     z-index: 1000; /* Ensure the navbar is above other content */
     width: 100%;
