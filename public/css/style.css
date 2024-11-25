@@ -73,6 +73,66 @@ nav a {
 
 }
 
+.cart-container {
+    position: absolute;
+    right: 0;
+    padding: 10px;
+    padding-right: 20px;
+}
+
+.cart-button {
+    border: 2px solid rgba(0, 0, 0, 0.074);
+    border-radius: 18px;
+    font-size: 16px;
+    cursor: pointer;
+    gap: 8px;
+    background-color: transparent;
+    box-shadow: -1px -2px 2px rgba(0, 0, 0, .29);
+    display: block; 
+    position: relative;
+    margin: 10px auto; 
+    text-align: center;
+    text-decoration: none;
+    padding: 0 20px;
+    width: 200px;
+    height: 70px;
+}
+
+
+.cart-icon {
+    font-size: 50px;
+}
+
+/* Cart item count styling */
+.cart-count {
+    border: 2px solid black;
+    position: absolute;  
+    top: -5px;  
+    left: -5px;  
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 117, 186);
+    border-radius: 100%;
+    padding: 8px;
+    font-size: 20px;
+}
+
+.cart-text {
+    font-size: 30px;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.cart-button:hover  {
+    background: linear-gradient(to bottom, #f0dd60 0%, #c0934f 100%);
+    box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.3); /* Adds more shadow for hover */
+}
+
+/* Active (clicked) state */
+.cart-button:active {
+    transform: translateY(1px); /* Slightly depress the button */
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); /* Reduced shadow on active */
+}
+
+
 header {
     position: relative;
     top: 0;
@@ -159,7 +219,7 @@ section h2 {
     font-weight: bold;
 }
 
-button {
+.add-to-cart-btn {
     color: black;
     background: linear-gradient(to bottom, #fee967 0%, #fec168 100%);
     border: 2px solid rgba(0, 0, 0, 0.418);
@@ -180,13 +240,13 @@ button {
 
 
 /* Hover state */
-button:hover {
+.add-to-cart-btn:hover  {
     background: linear-gradient(to bottom, #f0dd60 0%, #c0934f 100%);
     box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.3); /* Adds more shadow for hover */
 }
 
 /* Active (clicked) state */
-button:active {
+.add-to-cart-btn:active {
     transform: translateY(1px); /* Slightly depress the button */
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); /* Reduced shadow on active */
 }
