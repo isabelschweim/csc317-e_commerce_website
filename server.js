@@ -8,6 +8,9 @@ const indexRouter = require('./routes/index');
 const aboutRouter = require('./routes/about');
 const searchRouter = require('./routes/search');
 const faqRouter = require('./routes/faq');
+const loginRouter = require('./routes/login');
+const registerRouter = require('./routes/register');
+const settingsRouter = require('./routes/settings');
 
 // Set up view engine to use EJS
 app.set('view engine', 'ejs');
@@ -21,6 +24,9 @@ app.use('/', indexRouter); // Homepage route
 app.use('/', aboutRouter); // About page route
 app.use('/', searchRouter); // Search page route
 app.use('/', faqRouter); // FAQ page route
+app.use('/', loginRouter); // Login page route
+app.use('/', registerRouter); // Register page route
+app.use('/', settingsRouter); // Settings page route
 
 // Start the server
 app.listen(port, () => {
