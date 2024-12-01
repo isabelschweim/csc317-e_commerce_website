@@ -105,6 +105,14 @@ header img {
     z-index: 1001; /* Ensure the logo is above other content */
 }
 
+/* Styling for the top-right links container */
+.top-right-links {
+    position: absolute;
+    top: 10px; /* Space from the top of the page */
+    right: 20px; /* Space from the right edge */
+    display: flex;
+    flex-direction: column; /* Arrange links vertically */
+}
 
 /* Styling for individual links */
 .top-right-links a {
@@ -214,6 +222,7 @@ button:active {
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); /* Reduced shadow on active */
 }
 
+
 #faq {
     margin: 30px 40px;
 }
@@ -234,19 +243,10 @@ button:active {
     border-radius: 5px;  /* Optional: Adds rounded corners to the image */
 }
 
-/* Styling for the top-right links container */
-.top-right-links {
-    position: absolute;
-    top: 10px; /* Space from the top of the page */
-    right: 20px; /* Space from the right edge */
+/* Login/Registration styling */
+.login-container {
     display: flex;
-    flex-direction: column; /* Arrange links vertically */
-}
-
-
-.container {
-    display: flex;
-    margin: 50px auto;
+    margin: 40px auto;
     max-width: 1000px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
@@ -292,4 +292,41 @@ button:active {
 
 .register {
     background-color: #8bb78739;
+}
+
+/* Footer styling */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px 50px;
+    background-color: #eeeded;
+    color: rgb(74, 74, 74);
+    width: 100%;
+    position: relative;
+    bottom: 0;  /* Position at the bottom */
+}
+
+.footer-section {
+    flex: 1; /* Each section takes up equal space */
+    margin: 0 20px; /* Optional: Adds some space between sections */
+}
+
+.footer-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 0px;
+}
+
+.footer-section p {
+    font-size: 1em;
+    margin-bottom: 0px;
+}
+
+.footer-section a {
+    color: #781102;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding-left: 0;
 }
