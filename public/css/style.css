@@ -197,7 +197,6 @@ button:active {
 
 #about-us {
     position: relative;
-    padding: 20px;
 }
 
 .about-content {
@@ -212,3 +211,32 @@ button:active {
     border-radius: 5px;  /* Optional: Adds rounded corners to the image */
 }
 
+/* Styling for the top-right links container */
+.top-right-links {
+    position: absolute;
+    top: 10px; /* Space from the top of the page */
+    right: 20px; /* Space from the right edge */
+    display: flex;
+    flex-direction: column; /* Arrange links vertically */
+}
+
+/* Styling for individual links */
+.top-right-links a {
+    text-decoration: none; /* Remove underline */
+    color: #ffffff; /* Link color */
+    font-size: 1.2em;
+    padding: 0px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-align: right; /* Align text to the right */
+}
+
+/* Target the third link specifically */
+.top-right-links a:nth-child(3) {
+    margin-top: 90px; /* Add space above the "Settings" link */
+}
+
+.top-right-links a:hover {
+    background-color: #ffc821; /* Background on hover */
+    color: #f0f0f0; /* Darker link color */
+}
