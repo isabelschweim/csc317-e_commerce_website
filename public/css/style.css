@@ -191,3 +191,24 @@ button:active {
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); /* Reduced shadow on active */
 }
 
+#faq {
+    margin: 30px 40px;
+}
+
+#about-us {
+    position: relative;
+    padding: 20px;
+}
+
+.about-content {
+    margin: 30px 40px;
+}
+
+.about-image {
+    max-width: 450px;  /* Adjust the image size as needed */
+    float: right;  /* This makes the image float to the right */
+    margin-left: 20px;  /* Adds space between the image and the text */
+    margin-bottom: 20px;  /* Adds space below the image */
+    border-radius: 5px;  /* Optional: Adds rounded corners to the image */
+}
+
