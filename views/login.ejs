@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search</title> <!-- Page title -->
+    <title>Login</title> <!-- Page title -->
     <link rel="stylesheet" href="/css/style.css"> <!-- Your CSS file -->
 </head>
 <body>
@@ -30,22 +30,25 @@
         </ul>
     </nav>
 
+     <!-- Page-specific content -->
     <div class="login-container">
         <!-- Login Section -->
         <div class="form-section login">
             <h2>Login</h2>
+            <p>Existing account</p>
             <form action="/login" method="POST">
                 <label for="login-username">Username</label>
                 <input type="text" id="login-username" name="username" required>
                 <label for="login-password">Password</label>
                 <input type="password" id="login-password" name="password" required>
-                <button type="submit">Login</button>
+                <button class="form-button" type="submit">Login</button>
             </form>
         </div>
 
         <!-- Registration Section -->
         <div class="form-section register">
             <h2>Register</h2>
+            <p>Create a new account</p>
             <form action="/register" method="POST">
                 <label for="register-username">Username</label>
                 <input type="text" id="register-username" name="username" required>
@@ -55,11 +58,12 @@
                 <input type="password" id="register-password" name="password" required>
                 <label for="register-confirm-password">Confirm Password</label>
                 <input type="password" id="register-confirm-password" name="confirm_password" required>
-                <button type="submit">Register</button>
+                <button class="form-button" type="submit">Register</button>
             </form>
         </div>
     </div>
 
+    <!-- Footer (Shared across all pages) -->
     <footer>
         <div class="footer-section">
             <h3>Get to know us</h3>
@@ -86,7 +90,7 @@
             <h3>Your account</h3>
             <ul>
                 <li><a href="/login">Login/Register</a></li>
-                <li><a href="">Settings</a></a></li>
+                <li><a href="/settings">Settings</a></a></li>
             </ul>
         </div>
         <script src="/js/main.js"></script>

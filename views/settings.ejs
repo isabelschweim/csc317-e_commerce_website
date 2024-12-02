@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search</title> <!-- Page title -->
+    <title>Security Settings</title> <!-- Page title -->
     <link rel="stylesheet" href="/css/style.css"> <!-- Your CSS file -->
 </head>
 <body>
@@ -31,9 +31,90 @@
     </nav>
 
     <!-- Page-specific content -->
-    <h2>Search</h2>
-    <p>Welcome to the Search page. Use the search functionality to find your favorite NFTs or explore our products.</p>
+    <div class="settings-container">
 
+        <!-- General Settings Section -->
+        <div class="settings-section general">
+            <h2>General Settings</h2>
+            <form>
+                <label for="email-preferences">Email Notifications:</label>
+                <select id="email-preferences" name="email-preferences">
+                    <option value="all">Receive all notifications</option>
+                    <option value="important">Only important updates</option>
+                    <option value="none">No notifications</option>
+                </select>
+    
+                <label for="display-preferences">Display Theme:</label>
+                <select id="display-preferences" name="display-preferences">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+    
+                <label for="username">Change Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter new username">
+    
+                <button class="form-button" type="submit">Save Changes</button>
+            </form>
+        </div>
+    
+        <!-- Change Password Section -->
+        <div class="settings-section password">
+            <h2>Change Password</h2>
+            <form>
+                <label for="current-password">Current Password:</label>
+                <input type="password" id="current-password" name="current-password">
+    
+                <label for="new-password">New Password:</label>
+                <input type="password" id="new-password" name="new-password">
+    
+                <label for="confirm-password">Confirm New Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password">
+    
+                <button class="form-button" type="submit">Update Password</button>
+            </form>
+        </div>
+    
+        <!-- Two-Factor Authentication Section -->
+        <div id="2fa-section" class="settings-section">
+            <h2>Two-Factor Authentication</h2>
+            <p>
+                Enhance your account security by enabling Two-Factor Authentication (2FA). 
+                When enabled, you'll be prompted to enter a verification code in addition to your password.
+            </p> 
+    
+            <form>
+                <div id="2fa-setup">
+                    <h3>Set Up 2FA</h3>
+                    <p>
+                        To enable 2FA, follow these steps:
+                    </p>
+                    <ol>
+                        <li>Download an authenticator app (e.g., Google Authenticator, Authy).</li>
+                        <li>Scan the QR code or enter the key provided below into the app.</li>
+                        <li>Enter the generated code in the field below to complete setup.</li>
+                    </ol>
+    
+                    <label for="qr-code">
+                        QR Code:
+                    </label>
+                    <div id="qr-code">
+                        <img src="images/qr-code.png" alt="QR Code">
+                    </div>
+    
+                    <label for="manual-key">Manual Key:</label>
+                    <input type="text" id="manual-key" value="ABC123XYZ789" readonly>
+    
+                    <label for="verification-code">Verification Code:</label>
+                    <input type="text" id="verification-code" placeholder="Enter code from app">
+    
+                    <button class="form-button" type="submit">Verify and Enable 2FA</button>
+                </div>
+            </form>
+        </div>
+    
+    </div>
+
+    <!-- Footer (Shared across all pages) -->
     <footer>
         <div class="footer-section">
             <h3>Get to know us</h3>
@@ -60,7 +141,7 @@
             <h3>Your account</h3>
             <ul>
                 <li><a href="/login">Login/Register</a></li>
-                <li><a href="">Settings</a></a></li>
+                <li><a href="/settings">Settings</a></a></li>
             </ul>
         </div>
         <script src="/js/main.js"></script>

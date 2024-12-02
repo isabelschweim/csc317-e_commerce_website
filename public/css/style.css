@@ -294,6 +294,66 @@ button:active {
     background-color: #8bb78739;
 }
 
+/* Security/Settings styling */
+.settings-container {
+    display: flex;
+    margin: 40px auto;
+    justify-content: space-between;
+    width: 90%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.settings-section {
+    padding: 20px;
+}
+
+/* General Settings and Change Password sections occupy 25% each */
+.settings-section.general,
+.settings-section.password {
+    flex-basis: 25%; /* Occupy 25% of the width */
+    border-right: 1px solid #ddd;
+}
+
+/* Two-Factor Authentication section occupies 50% */
+#2fa-section {
+    flex-basis: 50%; /* Occupy 50% of the width */
+}
+
+/* Adjust QR code width */
+#qr-code img {
+    max-width: 50%; /* Better visibility for QR Code */
+    height: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 14px;
+    color: #555;
+}
+
+input[type="password"],
+input[type="text"],
+select,
+.form-button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form-button:hover {
+    color: white;
+    background-color: #4cae4c;
+}
+
 /* Footer styling */
 footer {
     display: flex;
