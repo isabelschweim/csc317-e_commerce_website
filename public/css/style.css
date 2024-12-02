@@ -254,6 +254,11 @@ button:active {
     background-color: #fff;
 }
 
+.login-container p {
+    margin: 0 0 60px; /* Small spacing between header and form */
+    color: #555; /* Subtle text color */
+}
+
 .form-section {
     flex: 1;
     padding: 40px;
@@ -262,36 +267,30 @@ button:active {
     justify-content: center;
 }
 
-.form-section h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-}
-
 .form-section form {
     display: flex;
     flex-direction: column;
 }
 
 .form-section form label {
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     font-weight: bold;
     color: #555;
 }
 
 .form-section form input {
-    margin-bottom: 15px;
+    margin-bottom: 0px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
 
 .login {
-    background-color: #ffefe1;
+    background-color: #f9efe5;
 }
 
 .register {
-    background-color: #8bb78739;
+    background-color: #fdfaeb;
 }
 
 /* Security/Settings styling */
