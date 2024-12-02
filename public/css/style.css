@@ -108,7 +108,7 @@ header img {
 /* Styling for the top-right links container */
 .top-right-links {
     position: absolute;
-    top: 10px; /* Space from the top of the page */
+    top: 30px; /* Space from the top of the page */
     right: 20px; /* Space from the right edge */
     display: flex;
     flex-direction: column; /* Arrange links vertically */
@@ -126,7 +126,7 @@ header img {
 }
 
 /* Target the third link specifically */
-.top-right-links a:nth-child(3) {
+.top-right-links a:nth-child(2) {
     margin-top: 90px; /* Add space above the "Settings" link */
 }
 

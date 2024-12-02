@@ -14,8 +14,7 @@
         </a>
 
         <div class="top-right-links">
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
+            <a href="/login">Login/Register</a>
             <a href="/settings">Settings</a>
         </div>
     </header>
@@ -36,25 +35,40 @@
         <!-- General Settings Section -->
         <div class="settings-section general">
             <h2>General Settings</h2>
-            <form>
-                <label for="email-preferences">Email Notifications:</label>
-                <select id="email-preferences" name="email-preferences">
-                    <option value="all">Receive all notifications</option>
-                    <option value="important">Only important updates</option>
-                    <option value="none">No notifications</option>
-                </select>
-    
-                <label for="display-preferences">Display Theme:</label>
-                <select id="display-preferences" name="display-preferences">
-                    <option value="light">Light</option>
-                    <option value="dark">Dark</option>
-                </select>
-    
-                <label for="username">Change Username:</label>
-                <input type="text" id="username" name="username" placeholder="Enter new username">
-    
-                <button class="form-button" type="submit">Save Changes</button>
-            </form>
+
+            <section>
+                <h3>General Information</h3>
+                <form>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" value="JohnDoe123">
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="johndoe@example.com">
+                    
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" value="(123) 456-7890">
+                    
+                    <button class="form-button" type="submit">Save Changes</button>
+                </form>
+            </section>
+        
+            <section>
+                <h3>Notifications</h3>
+                <form>
+                    <label>
+                        <input type="checkbox" checked> Receive email notifications
+                    </label>
+                    <label>
+                        <input type="checkbox"> Receive SMS notifications
+                    </label>
+                    <select id="email-preferences" name="email-preferences">
+                        <option value="all">Receive all notifications</option>
+                        <option value="important">Only important updates</option>
+                        <option value="none">No notifications</option>
+                    </select>
+                    <button class="form-button" type="submit">Update Preferences</button>
+                </form>
+            </section>
         </div>
     
         <!-- Change Password Section -->
