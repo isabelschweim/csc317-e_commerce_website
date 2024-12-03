@@ -1,19 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+/* ----------------------------------------------BODY---------------------------------------------- */
+
 body {
     font-family: 'Hiragino Sans';
     background-color: #ffffff;
-    /* background-image: url('Resources/main_BG.jpg'); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* This ensures nav bar is always at the top of the page, even when scrolling down. */
 body, html {
     margin: 0;
     padding: 0;
 }
+
+/* ----------------------------------------------HEADER---------------------------------------------- */
+
+header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/Header_Background.png');
+    background-size: cover;  /* Ensure the background covers the entire div */
+    background-position: center;
+    z-index: 0; /* Make sure the background is below the logo */
+}
+
+header img {
+    height: 200px; /* Adjust the height of the logo */
+}
+
+#headerLogo {
+    display: inline-block; /* Ensure the anchor behaves like a block-level element */
+    cursor: pointer; /* Add a pointer cursor to indicate it is clickable */
+    position: relative; /* Ensure it's positioned relative to the header */
+    z-index: 1; /* Ensure the logo is above the background */
+    height: 200px; /* Adjust the height of the logo */
+    width: auto;   /* Ensure the aspect ratio of the logo is maintained */
+}
+
+#headerLogo {
+    display: inline-block;
+    cursor: pointer;
+    z-index: 1001; /* Ensure the logo is above other content */
+}
+
+/* ----------------------------------------------NAVIGATION---------------------------------------------- */
 
 nav {
     position: sticky;
@@ -23,33 +58,33 @@ nav {
     background-color: #781102;
     z-index: 1000; /* Ensure the navbar is above other content */
     width: 100%;
-    left: 0; /* Start from the left edge */
-    right: 0; /* Stretch to the right edge */
+    left: 0; 
+    right: 0; 
     font-size: 3em;
     font-family: 'Bebas Neue', sans-serif;
     text-shadow:
-        2px 2px 0px #000000,   /* Horizontal and vertical shadows for the outline */
-        -2px -2px 0px #000000,  /* Shadows in other directions */
+        2px 2px 0px #000000,   
+        -2px -2px 0px #000000,  
         2px -2px 0px #000000,
         -2px 2px 0px #000000;
 }
 
 #nav-links {
     list-style: none;
-    display: flex; /* Arrange the items in a row */
-    justify-content: flex-start;
+    display: flex; 
+    justify-content: flex-start; /* Arrange the items in a row */
     padding: 0;
     margin: 0;
 }
 
 #nav-links li {
-    padding: 1px 15px;  /* Add padding inside the list items */
+    padding: 1px 15px;  
     position: relative;
-    margin-right: 4em; /* Space between each nav item */
+    margin-right: 4em; 
 }
 
 #nav-links li:last-child {
-    margin-right: 0; /* Remove margin for the last nav item */
+    margin-right: 0; 
 }
 
 #nav-links li a {
@@ -70,39 +105,54 @@ nav a {
     text-decoration: none;
     padding: 14px 20px;
     display: block;
-
 }
 
-header {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('/images/Header_Background.png');
-    background-size: cover;  /* Ensure the background covers the entire div */
-    background-position: center;
-    z-index: 0; /* Make sure the background is below the logo */
+#toggle-menu {
+    display: none;
 }
 
-header img {
-    height: 200px; /* Adjust the height of the logo */
-
+#toggle-menu:checked + #hamburger + #nav-links {
+    max-height: 300px; /* Set a max height when expanded (adjust as necessary) */
 }
 
-#headerLogo {
-    display: inline-block; /* Ensure the anchor behaves like a block-level element */
-    cursor: pointer; /* Add a pointer cursor to indicate it is clickable */
-    position: relative; /* Ensure it's positioned relative to the header */
-    z-index: 1; /* Ensure the logo is above the background */
-    height: 200px; /* Adjust the height of the logo */
-    width: auto;   /* Ensure the aspect ratio of the logo is maintained */
-}
-
-#headerLogo {
-    display: inline-block;
+/* Styles for the hamburger menu */
+#hamburger {
+    display: none; /* Hidden by default */
+    font-size: 30px;
     cursor: pointer;
-    z-index: 1001; /* Ensure the logo is above other content */
+    color: #ffffff;
+}
+
+/* ----------------------------------------------LOGIN/REGISTER/SETTINGS LINKS ---------------------------------------------- */
+
+/* Styling for the top-right links container */
+.top-right-links {
+    position: absolute;
+    top: 30px; /* Space from the top of the page */
+    right: 20px; /* Space from the right edge */
+    display: flex;
+    flex-direction: column; /* Arrange links vertically */
+}
+
+/* Styling for individual links */
+.top-right-links a {
+    text-decoration: none; /* Remove underline */
+    color: #ffffff; /* Link color */
+    font-size: 1.2em;
+    padding: 0px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-align: right; /* Align text to the right */
+}
+
+/* Target the third link specifically */
+.top-right-links a:nth-child(2) {
+    margin-top: 90px; /* Add space above the "Settings" link */
+}
+
+.top-right-links a:hover {
+    background-color: #ffc821; /* Background on hover */
+    color: #f0f0f0; /* Darker link color */
 }
 
 section h2 {
@@ -110,6 +160,9 @@ section h2 {
     margin: 20px 0;
     font-size: 2em;
 }
+
+
+/* ----------------------------------------------PRODUCTS---------------------------------------------- */
 
 #products ul {
     list-style-type: none;
@@ -178,7 +231,6 @@ button {
     cursor: pointer; /* Ensures pointer cursor on hover */
 }
 
-
 /* Hover state */
 button:hover {
     background: linear-gradient(to bottom, #f0dd60 0%, #c0934f 100%);
@@ -191,3 +243,321 @@ button:active {
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); /* Reduced shadow on active */
 }
 
+#faq {
+    margin: 30px 40px;
+}
+
+/* ----------------------------------------------ABOUT US---------------------------------------------- */
+#about-us {
+    position: relative;
+}
+
+.about-content {
+    margin: 30px 40px;
+}
+
+.about-image {
+    max-width: 450px;  /* Adjust the image size as needed */
+    float: right;  /* This makes the image float to the right */
+    margin-left: 20px;  /* Adds space between the image and the text */
+    margin-bottom: 20px;  /* Adds space below the image */
+    border-radius: 5px;  /* Optional: Adds rounded corners to the image */
+}
+
+/* Login/Registration styling */
+.login-container {
+    display: flex;
+    margin: 40px auto;
+    max-width: 1000px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.login-container p {
+    margin: 0 0 60px; /* Small spacing between header and form */
+    color: #555; /* Subtle text color */
+}
+
+.form-section {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section form label {
+    margin-bottom: 0px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-section form input {
+    margin-bottom: 0px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.login {
+    background-color: #f9efe5;
+}
+
+.register {
+    background-color: #fdfaeb;
+}
+
+/* Security/Settings styling */
+.settings-container {
+    display: flex;
+    margin: 40px auto;
+    justify-content: space-between;
+    width: 90%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.settings-section {
+    padding: 20px;
+}
+
+/* General Settings and Change Password sections occupy 25% each */
+.settings-section.general,
+.settings-section.password {
+    flex-basis: 25%; /* Occupy 25% of the width */
+    border-right: 1px solid #ddd;
+}
+
+/* Two-Factor Authentication section occupies 50% */
+#2fa-section {
+    flex-basis: 50%; /* Occupy 50% of the width */
+}
+
+/* Adjust QR code width */
+#qr-code img {
+    max-width: 50%; /* Better visibility for QR Code */
+    height: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 14px;
+    color: #555;
+}
+
+input[type="password"],
+input[type="text"],
+select,
+.form-button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form-button:hover {
+    color: white;
+    background-color: #4cae4c;
+}
+
+
+/* ----------------------------------------------FOOTER---------------------------------------------- */
+/* Footer styling */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px 50px;
+    background-color: #eeeded;
+    color: rgb(74, 74, 74);
+    width: 100%;
+    position: relative;
+    bottom: 0;  /* Position at the bottom */
+}
+
+.footer-section {
+    flex: 1; /* Each section takes up equal space */
+    margin: 0 20px; /* Optional: Adds some space between sections */
+}
+
+.footer-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 0px;
+}
+
+.footer-section p {
+    font-size: 1em;
+    margin-bottom: 0px;
+}
+
+.footer-section a {
+    color: #781102;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+
+/* ----------------------------------------------MOBILE---------------------------------------------- */
+@media (max-width: 600px) {
+    
+    /*----------------------------------------------MOBILE HEADER------------------------------------- */
+
+    header img {
+        height: 100px; /* Adjust the height of the logo */
+        position: absolute; /* Position the image absolutely */
+        top: 100px; /* Adjust the top position */
+
+    }
+
+    /*----------------------------------------------MOBILE NAV--------------------------------------- */
+
+    #nav-links {
+        flex-direction: column;
+        align-items: center;
+        background-color: #781102;
+        width: 100%;
+        padding: 0;
+        transition: max-height 0.5s ease-out; /* Dropdown menu animation */
+        overflow: hidden; /* Prevent overflow during transition */
+        max-height: 0; /* Start with height of 0 for animation */
+    }
+
+    #nav-links li {
+        margin-right: 0; /* Remove right margin to center items */
+        font-size: 20px;
+        margin: 10px 0;
+    }
+
+    nav a {
+        padding: 10px 15px;
+        font-size: 1.2em;
+    }
+
+    nav a {
+        padding: 10px 15px;
+        font-size: 1.2em;
+    }
+
+    #toggle-menu {
+        display: none; /* Hide the checkbox that appears on the Nav bar */
+    }
+
+    #hamburger {
+        display: block; /* Show hamburger icon only on mobile */
+        font-size: 24px;
+        background: none;
+        border: none;
+        color: #f2f2f2;
+        cursor: pointer;
+    }
+
+
+    /*----------------------------------------------MOBILE PRODUCTS--------------------------------------- */
+
+    h3, p {
+        width: 80%; /* Make text elements take full width */
+        max-width: 600px; /* Limit text width */
+        text-align: center; /* Center-align text */
+        margin: 0 auto; /* Center the text block */
+        padding: 10px; /* Add some padding for spacing */
+    }
+
+    #products h3, #products p, #products .price {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #products ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: block; /* Stack items vertically */
+    }
+    #products li {
+        width: 100%; /* Each item takes full width */
+        margin: 10px 0;
+        display: block; /* Ensure items are block elements */
+        text-align: center; /* Center content horizontally */
+    }
+
+    #products img {
+        width: 80%; /* Adjust image width for mobile view */
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .price {
+        display: inline-block; /* Allows text-align: center to center the button */
+        margin: 10px auto;     /* Ensure margins are set to auto */
+        font-size: 1.1em;
+    }
+
+    button {
+        display: inline-block; /* Allows text-align: center to center the button */
+        margin: 10px auto;     /* Ensure margins are set to auto */
+    }
+
+    /*----------------------------------------------MOBILE FOOTER--------------------------------------- */
+    footer {
+        flex-direction: column; /* Stack sections vertically */
+        align-items: center;    /* Center the sections */
+        padding: 20px 10px;     /* Adjust padding for mobile */
+    }
+
+    .footer-section {
+        margin: 10px 0;         /* Space between sections */
+        width: 100%;            /* Full width for each section */
+        text-align: center;     /* Center text within sections */
+    }
+
+    .footer-section h3 {
+        font-size: 1.2em;
+        margin-bottom: 10px;    /* Space below headings */
+    }
+
+    .footer-section ul {
+        padding-left: 0;
+        list-style-type: none;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 5px;     /* Space between list items */
+    }
+
+    .footer-section p {
+        margin: 0 auto 10px;    /* Center paragraphs */
+        max-width: 90%;         /* Limit paragraph width */
+    }
+
+    .footer-section a {
+        color: #781102;
+        display: block;         /* Ensure links stack vertically */
+        margin: 5px 0;          /* Space around links */
+    }
+
+    /* Adjust font sizes if necessary */
+    .footer-section h3 {
+        font-size: 1.1em;
+    }
+
+    .footer-section p, .footer-section a {
+        font-size: 1em;
+    }
+}
