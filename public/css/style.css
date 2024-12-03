@@ -280,21 +280,6 @@ section h2 {
         font-size: 1.1em;
     }
 
-    .add-to-cart-btn {
-        width: 80%; /* Button spans 80% width for better appearance */
-        font-size: 32px;
-        height: 60px;
-        margin: 0 auto; /* Center the button */
-    }
-
-    .add-to-cart-btn:hover {
-        background: linear-gradient(to bottom, #f0dd60 0%, #c0934f 100%);
-    }
-
-    .add-to-cart-btn:active {
-        transform: translateY(1px);
-    }
-
     nav {
         font-size: 2em; /* Adjust font size for mobile */
     }
@@ -302,7 +287,7 @@ section h2 {
     #nav-links {
         flex-direction: column;
         align-items: center;
-        background-color: #336699;
+        background-color: #781102;
         width: 100%;
         padding: 0;
         transition: max-height 0.5s ease-out; /* Transition for dropdown effect */
@@ -321,28 +306,6 @@ section h2 {
         padding: 0.5em 0;
     }
 
-    .cart-container {
-        position: static;
-        margin: 10px auto;
-        display: flex;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .cart-button {
-        width: auto;
-        height: auto;
-        padding: 10px;
-        margin: 0;
-    }
-
-    .cart-icon {
-        font-size: 40px;
-    }
-
-    .cart-text {
-        font-size: 20px;
-    }
 }
 
 /* This hides the checkbox itself */
@@ -365,96 +328,6 @@ section h2 {
 .nav-container {
     position: relative;
 }
-
-
-SAVE THIS FOR LATER TONY
-/* Media query for screens 600px or less */
-@media screen and (max-width: 600px) {
-    #toggle-menu {
-        display: none; /* Hide the checkbox */
-    }
-    /* Show hamburger menu */
-    #hamburger {
-        display: block;
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        z-index: 1002;
-    }
-
-    /* Hide navigation links by default */
-    #nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #781102;
-        position: absolute;
-        top: 60px; /* Adjust based on nav height */
-        left: 0;
-        width: 100%;
-        padding: 10px;
-    }
-
-    /* Show navigation links when checkbox is checked */
-    #toggle-menu:checked + #hamburger + #nav-links {
-        display: flex;
-    }
-    #toggle-menu:checked + #hamburger + #nav-links {
-        max-height: 300px; /* Set a max height when expanded (adjust as necessary) */
-    }
-
-    /* Style navigation items */
-    #nav-links li {
-        margin: 10px 0;
-    }
-
-    #nav-links li a {
-        padding: 0.5em 0;
-    }
-
-    /* Adjust nav font size */
-    nav {
-        font-size: 2em;
-    }
-
-    /* Adjust cart container */
-    .cart-container {
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        z-index: 1002;
-    }
-
-    /* Adjust header logo */
-    #headerLogo {
-        position: absolute;
-        top: 10px;
-        left: 20px;
-        height: 50px;
-        width: auto;
-    }
-
-    #headerLogo img {
-        height: 50px;
-        width: auto;
-    }
-    header {
-        height: 150px; /* Adjust header height on mobile for better fit */
-    }
-
-    #headerLogo {
-        position: absolute;
-        top: 10px;
-        left: 20px;
-        height: 50px;
-        width: auto;
-    }
-
-    #headerLogo img {
-        height: 50px;
-        width: auto;
-    }
-}
-
 
 @media (max-width: 600px) {
     #toggle-menu {
@@ -480,7 +353,7 @@ SAVE THIS FOR LATER TONY
     #nav-links {
         flex-direction: column;
         align-items: center;
-        background-color: #336699;
+        background-color: #781102;
         width: 100%;
         padding: 0;
         transition: max-height 0.5s ease-out; /* Transition for dropdown effect */
@@ -494,6 +367,7 @@ SAVE THIS FOR LATER TONY
     }
 
     nav li {
+        font-size: 20px;
         margin: 10px 0;
     }
 
@@ -502,66 +376,3 @@ SAVE THIS FOR LATER TONY
         font-size: 1.2em;
     }
 }
- .ralewayClass {
-   font-family: "Raleway", sans-serif;
-   font-optical-sizing: auto;
-   font-weight: <weight>;
-   font-style: normal;
- }
- 
- .graduate-regular {
-   font-family: "Graduate", serif;
-   font-weight: 400;
-   font-style: normal;
- }
- 
- .bevan-regular {
-   font-family: "Bevan", serif;
-   font-weight: 400;
-   font-style: normal;
- }
- 
- .bevan-regular-italic {
-   font-family: "Bevan", serif;
-   font-weight: 400;
-   font-style: italic;
- }
- 
- /* MORE PSUEDO ELEMENTS */
- /* header::before pseudo-element is towards the top */
- 
- p::before {
-   margin: 5px;
- }
- 
- p::after {
-   margin: 5px;
- }
- 
- h3::after {
-    margin: 5px;
-  }
- 
- p::first-letter {
-   color: #88c4cc;
-   font-size: large;
-   font-weight: 400;
- }
- 
- p::first-line {
-    font-style: italic;
-  }
- 
- h3::before {
-   content: url(./resources/tiny-globe.png) ;
-   margin: 5px;
- }
- 
- ::selection {
-   color: #008898;
- }
- 
- ul li::marker {
-   color: red;
-   font-size: 1.5em;
- }
