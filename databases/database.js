@@ -18,7 +18,7 @@ db.serialize(() => {
 	                               description TEXT NOT NULL,
                               	       price REAL NOT NULL,
 	                               token TEXT NOT NULL)')
-  const stmt = db.prepare('INSERT INTO products VALUES (1,'Carnotadministrus', 'The dino for the small business tyrant. For those who have the grindset. ', 1999.99, 'a1b2c3d4-e5f6-7890-abcd-ef1234567890');
+  const stmt = db.prepare( INSERT INTO products VALUES (1,'Carnotadministrus', 'The dino for the small business tyrant. For those who have the grindset. ', 1999.99, 'a1b2c3d4-e5f6-7890-abcd-ef1234567890');
                            INSERT INTO products VALUES (2,'Chappy', 'Feeling blue? Chappy is for you.', 399.99, 'f1e2d3c4-b5a6-7890-1234-56789abcdef0');
                            INSERT INTO products VALUES (3,'Chonkosaurus', 'Perfect reminder that you need to lose weight post-Thanksgiving.', 10999.99, '1234abcd-5678-90ef-ghij-klmnopqrstuv');
                            INSERT INTO products VALUES (4,'Creepclaw', 'That one awkward dinosaur from your middle school. ', 1499.99, 'abcd1234-ef56-7890-ghij-klmnopqrstuv');
@@ -30,7 +30,7 @@ db.serialize(() => {
                            INSERT INTO products VALUES (10,'Rumoraptor', "A DinoTube drama queen/king.", 1949.99, 'ijkl5678-mnop-qrst-uvwx-yzabcdef9012');
                            INSERT INTO products VALUES (11,'T. Wrecks', 'The largest known creature to exist. Ever. ', 24999.99, 'qrst1234-uvwx-yzab-cdef-ghijklmnop78');
                            INSERT INTO products VALUES (12,'The Witness', 'He saw it coming, but no one would listen to him. It was too late.', 699.99, 'uvwx5678-yzab-cdef-ghij-klmnopqrst90');
-')
+)
 
   for (let i = 0; i < 10; i++) {
     stmt.run(products ${i})
