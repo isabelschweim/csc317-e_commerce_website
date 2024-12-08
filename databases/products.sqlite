@@ -23,3 +23,7 @@ INSERT INTO products VALUES (9,'Purranosaurus', 'A horrid science experiment gon
 INSERT INTO products VALUES (10,'Rumoraptor', "A DinoTube drama queen/king.", 1949.99, 'ijkl5678-mnop-qrst-uvwx-yzabcdef9012');
 INSERT INTO products VALUES (11,'T. Wrecks', 'The largest known creature to exist. Ever. ', 24999.99, 'qrst1234-uvwx-yzab-cdef-ghijklmnop78');
 INSERT INTO products VALUES (12,'The Witness', 'He saw it coming, but no one would listen to him. It was too late.', 699.99, 'uvwx5678-yzab-cdef-ghij-klmnopqrst90');
+
+// Now format the table for better legibility... 
+
+.mode markdown --wrap 10 --ww;
