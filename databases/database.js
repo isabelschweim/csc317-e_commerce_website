@@ -1,11 +1,22 @@
 const sqlite3 = require('sqlite3').verbose()
-const db = new sqlite3.Database(':memory:')
+const path = require('path');
 
+// Attempt to connect to the database
+const db = new sqlite3.Database(path.join(__dirname, 'products.db'), (err) => {
+  if (err) {
+    console.error('Failed to connect to database:', err.message);
+  } else {
+    console.log('Connected to SQLite database.');
+  }
+});
+
+// If database does not already exist, Create new database
+const db = new sqlite3.Database(':memory:')
 db.serialize(() => {
   db.run('CREATE TABLE products (id INTEGER PRIMARY KEY,
 	                               title TEXT NOT NULL,
 	                               description TEXT NOT NULL,
-                              	 price REAL NOT NULL,
+                              	       price REAL NOT NULL,
 	                               token TEXT NOT NULL)')
   const stmt = db.prepare('INSERT INTO products VALUES (1,'Carnotadministrus', 'The dino for the small business tyrant. For those who have the grindset. ', 1999.99, 'a1b2c3d4-e5f6-7890-abcd-ef1234567890');
                            INSERT INTO products VALUES (2,'Chappy', 'Feeling blue? Chappy is for you.', 399.99, 'f1e2d3c4-b5a6-7890-1234-56789abcdef0');
@@ -31,5 +42,5 @@ db.serialize(() => {
     console.log(${row.id}: ${row.info})
   })
 })
-
+module.exports = db;
 db.close()
