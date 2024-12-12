@@ -100,7 +100,7 @@ nav a {
 }
 
 #toggle-menu:checked + #hamburger + #nav-links {
-    max-height: 300px; /* Set a max height when expanded (adjust as necessary) */
+    max-height: 400px; /* Set a max height when expanded (adjust as necessary) */
 }
 
 #hamburger {
