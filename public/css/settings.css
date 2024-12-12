@@ -281,6 +281,32 @@ button:active {
     transform: translateY(1px);
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
 }
+
+/* ----------------------------------------------CART ICON---------------------------------------------- */
+
+#cart-icon-container {
+    margin-left: auto; /* Pushes the cart icon to the far right */
+    
+}
+
+#cart-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+#cart-icon img {
+    width: 18vh; /* Adjust size of cart icon */
+    height: auto;
+    cursor: pointer;
+}
+
+/* Optional: Hover effect */
+#cart-icon:hover img {
+    opacity: 0.8; /* Slight opacity change on hover */
+    text-decoration: none;
+}
 /* ----------------------------------------------FOOTER---------------------------------------------- */
 
 /* Footer styling */

@@ -103,6 +103,32 @@ nav a {
     display: none; /* Hides the hambuger lines while on desktop */
 }
 
+/* ----------------------------------------------CART ICON---------------------------------------------- */
+
+#cart-icon-container {
+    margin-left: auto; /* Pushes the cart icon to the far right */
+    
+}
+
+#cart-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+#cart-icon img {
+    width: 18vh; /* Adjust size of cart icon */
+    height: auto;
+    cursor: pointer;
+}
+
+/* Optional: Hover effect */
+#cart-icon:hover img {
+    opacity: 0.8; /* Slight opacity change on hover */
+    text-decoration: none;
+}
+
 /* ----------------------------------------------LOGIN/REGISTER/SETTINGS LINKS ---------------------------------------------- */
 
 /* Styling for the top-right links container */
