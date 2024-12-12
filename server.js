@@ -1,7 +1,18 @@
 const express = require('express');
 const path = require('path');
+const sqlite3 = require('sqlite3').verbose();
 const app = express();
 const port = 3000;
+
+// Establish a connection to the SQLite database using a relative path
+const dbPath = path.join(__dirname, 'databases', 'products.sqlite');
+const db = new sqlite3.Database(dbPath, (err) => {
+    if (err) {
+        console.error('Error opening database:', err.message);
+    } else {
+        console.log('Connected to the SQLite database.');
+    }
+});
 
 // Import route handlers
 const indexRouter = require('./routes/index');
@@ -15,8 +26,11 @@ const settingsRouter = require('./routes/settings');
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+
 // Serve static files (images, CSS, JS)
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 // Use route handlers
 app.use('/', indexRouter); // Homepage route
@@ -28,5 +42,5 @@ app.use('/', settingsRouter); // Settings page route
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+    console.log(`Server running on http://localhost:${port}`);
 });
