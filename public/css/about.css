@@ -4,52 +4,37 @@
 /* ----------------------------------------------BODY---------------------------------------------- */
 
 body {
-    font-family: "Noto Sans JP", sans-serif, 'Hiragino Sans';
-    background-color: #ffffff;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Arrange header, main, and footer vertically */
+    min-height: 100vh; /* Full height of the viewport */
 }
 
-body, html {
-    margin: 0;
-    padding: 0;
-}
 
 /* ----------------------------------------------HEADER---------------------------------------------- */
 
 header {
-    position: relative;
-    top: 0;
-    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    height: 100%;
+    height: 23vh;
     background-image: url('/images/Header_Background.png');
-    background-size: cover;  /* Ensure the background covers the entire div */
+    background-size: cover;  
     background-position: center;
-    z-index: 0; /* Make sure the background is below the logo */
 }
-
 header img {
-    height: 200px; /* Adjust the height of the logo */
+    height: 100%; /* Set the logo height to 50% of the header's height */
+    width: auto; /* Ensure the logo maintains its aspect ratio */
 }
-
 #headerLogo {
-    display: inline-block; /* Ensure the anchor behaves like a block-level element */
     cursor: pointer; /* Add a pointer cursor to indicate it is clickable */
-    position: relative; /* Ensure it's positioned relative to the header */
-    z-index: 1; /* Ensure the logo is above the background */
     height: 200px; /* Adjust the height of the logo */
     width: auto;   /* Ensure the aspect ratio of the logo is maintained */
 }
 
-#headerLogo {
-    display: inline-block;
-    cursor: pointer;
-    z-index: 1001; /* Ensure the logo is above other content */
-}
-
-/* ----------------------------------------------NAVIGATION---------------------------------------------- */
+/* ----------------------------------------------NAV BAR---------------------------------------------- */
 
 nav {
     position: sticky;
@@ -80,7 +65,6 @@ nav {
 
 #nav-links li {
     padding: 1px 15px;  
-    position: relative;
     margin-right: 4rem; 
 }
 
@@ -91,7 +75,6 @@ nav {
 #nav-links li a {
     color: white;
     text-decoration: none;
-    display: block;
     padding: .5rem;
 }
 
@@ -116,12 +99,8 @@ nav a {
     max-height: 300px; /* Set a max height when expanded (adjust as necessary) */
 }
 
-/* Styles for the hamburger menu */
 #hamburger {
-    display: none; /* Hidden by default */
-    font-size: 30px;
-    cursor: pointer;
-    color: #ffffff;
+    display: none; /* Hides the hambuger lines while on desktop */
 }
 
 /* ----------------------------------------------LOGIN/REGISTER/SETTINGS LINKS ---------------------------------------------- */
@@ -160,92 +139,6 @@ section h2 {
     text-align: center;
     margin: 20px 0;
     font-size: 2rem;
-}
-
-
-/* ----------------------------------------------PRODUCTS---------------------------------------------- */
-
-#products ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-#products li {
-    font-size: 2rem;
-    border-radius: 3px;
-    display: flex;
-    text-align: center;
-    flex-direction: column; 
-    margin: 10px;
-    width: 30%;
-    padding: 20px;
-    box-sizing: border-box;
-    border: 1px solid #4c4c4c10;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-#products img {
-    width: 100%; 
-    height: auto;
-    margin-bottom: 10px;
-}
-
-#products h3 {
-    font-size: 1.2em;
-    margin: 10px 0;
-}
-
-#products p {
-    font-size: 0.9rem;
-    margin: 5px 0;
-}
-
-.price {
-    font-family: 'Bebas Neue', sans-serif;
-    color:#7a1000;
-    margin-top: auto;
-    font-size: 1.2rem;
-    margin: 10px 0;
-    font-weight: bold;
-}
-
-button {
-    color: black;
-    background: linear-gradient(to bottom, #fee967 0%, #fec168 100%);
-    border: 2px solid rgba(0, 0, 0, 0.418);
-    display: block; /* Change from inline-block to block */
-    position: relative;
-    margin: 10px auto; /* Auto margin on left and right to center */
-    text-align: center;
-    text-decoration: none;
-    border-radius: 25px;
-    transition: all 0.15s ease;
-    padding: 0 20px;
-    max-width: 320px; /* Set a max-width to prevent it from getting too wide */
-    height: 70px;
-    font: bold 40px/42px Arial, sans-serif;
-    box-shadow: 1px 2px 1px rgba(0, 0, 0, .29);
-    cursor: pointer; /* Ensures pointer cursor on hover */
-}
-
-/* Hover state */
-button:hover {
-    background: linear-gradient(to bottom, #f0dd60 0%, #c0934f 100%);
-    box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.3); /* Adds more shadow for hover */
-}
-
-/* Active (clicked) state */
-button:active {
-    transform: translateY(1px); /* Slightly depress the button */
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); /* Reduced shadow on active */
-}
-
-#faq {
-    margin: 30px 40px;
 }
 
 /* ----------------------------------------------ABOUT US---------------------------------------------- */
@@ -375,37 +268,8 @@ select,
     background-color: #4cae4c;
 }
 
-/* ----------------------------------------------ABOUT US---------------------------------------------- */
-.search-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
-}
-.search-input {
-    flex-grow: 1;
-    padding: 15px;
-    border-radius: 25px;
-    border: 1px solid #ccc;
-    outline: none;
-    font-size: 16px;
-}
-.search-icon {
-    margin-left: -40px;
-    cursor: pointer;
-}
-.results {
-    max-width: 600px;
-    margin: 20px auto;
-}
-.result-item {
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
-}
-
-
 /* ----------------------------------------------FOOTER---------------------------------------------- */
+
 /* Footer styling */
 footer {
     display: flex;
@@ -415,8 +279,7 @@ footer {
     background-color: #eeeded;
     color: rgb(74, 74, 74);
     width: 100%;
-    position: relative;
-    bottom: 0;  /* Position at the bottom */
+    box-sizing: border-box; /* This fixes the issue with the footer creating a being wider than the webpage */
 }
 
 .footer-section {
@@ -448,14 +311,40 @@ footer {
 @media (max-width: 600px) {
     
     /*----------------------------------------------MOBILE HEADER------------------------------------- */
-
     header img {
-        height: 100px; /* Adjust the height of the logo */
+        height: 10vh; /* Adjust the height of the logo */
         position: absolute; /* Position the image absolutely */
-        top: 100px; /* Adjust the top position */
-
+        top: 2%; /* Position the logo at the top */
+        left: 1%; /* Position the logo at the left */
+        margin-top: 0; 
     }
-
+    header {
+        height: 13vh;
+    }
+    .top-right-links {
+        position: absolute;
+        top: 30px; /* Space from the top of the page */
+        right: 20px; /* Space from the right edge */
+        display: flex;
+        flex-direction: column; /* Arrange links vertically */
+        gap: 5px; /* Optional: Adds space between links (adjust the value as needed) */
+    }
+    
+    .top-right-links a {
+        text-decoration: none; /* Remove underline */
+        color: #ffffff; /* Link color */
+        font-size: 1.2rem;
+        padding: 0px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        text-align: right; /* Align text to the right */
+        margin-bottom: 5px; /* Reduce margin to bring links closer */
+    }
+    
+    /* Optional: Targeting the second link to adjust spacing further */
+    .top-right-links a:nth-child(2) {
+        margin-top: 0px; /* Optional: Adjust spacing for the second link */
+    }
     /*----------------------------------------------MOBILE NAV--------------------------------------- */
 
     #nav-links {
@@ -498,53 +387,7 @@ footer {
         cursor: pointer;
     }
 
-
-    /*----------------------------------------------MOBILE PRODUCTS--------------------------------------- */
-
-    h3, p {
-        width: 80%; /* Make text elements take full width */
-        max-width: 600px; /* Limit text width */
-        text-align: center; /* Center-align text */
-        margin: 0 auto; /* Center the text block */
-        padding: 10px; /* Add some padding for spacing */
-    }
-
-    #products h3, #products p, #products .price {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    #products ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        display: block; /* Stack items vertically */
-    }
-    #products li {
-        width: 100%; /* Each item takes full width */
-        margin: 10px 0;
-        display: block; /* Ensure items are block elements */
-        text-align: center; /* Center content horizontally */
-    }
-
-    #products img {
-        width: 80%; /* Adjust image width for mobile view */
-        height: auto;
-        margin-bottom: 10px;
-    }
-
-    .price {
-        display: inline-block; /* Allows text-align: center to center the button */
-        margin: 10px auto;     /* Ensure margins are set to auto */
-        font-size: 1.1em;
-    }
-
-    button {
-        display: inline-block; /* Allows text-align: center to center the button */
-        margin: 10px auto;     /* Ensure margins are set to auto */
-    }
-
-    /*----------------------------------------------MOBILE FOOTER--------------------------------------- */
+/*----------------------------------------------MOBILE FOOTER--------------------------------------- */
     footer {
         flex-direction: column; /* Stack sections vertically */
         align-items: center;    /* Center the sections */
