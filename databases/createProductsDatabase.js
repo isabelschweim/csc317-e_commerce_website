@@ -47,7 +47,7 @@ db.serialize(() => {
         ['Eleganteryx', 'For the lady gym-rats. Or gym-dinos.', 1099.99, 'yzab1234-cdef-ghij-klmn-opqrstuvw'],
         ['Gloomasaurus', 'A NFT to remind you that things can always be worse.', 449.99, '0987zyxw-vuts-rqpo-nmlk-jihgfedcba12'],
         ['Johnny-Raptor', 'Here\'s Johnny!', 32.99, '5678mnop-qrst-uvwx-yzab-cdefghijkl34'],
-        ['Karenodon', 'Flash this NFT when you need to speak with the manager.', 7999.99, 'abcd5678-efgh-ijkl-mnop-qrstuvwx9012'],
+        ['Estilosaurus', 'Flash this NFT when you need to speak with the manager.', 7999.99, 'abcd5678-efgh-ijkl-mnop-qrstuvwx9012'],
         ['Purranosaurus', 'A horrid science experiment gone wrong.', 4999.99, 'mnop1234-qrst-uvwx-yzab-cdefghijkl56'],
         ['Rumoraptor', 'A DinoTube drama queen/king.', 1949.99, 'ijkl5678-mnop-qrst-uvwx-yzabcdef9012'],
         ['T. Wrecks', 'The largest known creature to exist. Ever.', 24999.99, 'qrst1234-uvwx-yzab-cdef-ghijklmnop78'],

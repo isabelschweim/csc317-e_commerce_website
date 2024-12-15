@@ -4,20 +4,22 @@ const router = express.Router();
 // Route to render homepage
 router.get('/', (req, res) => {
   const products = [
-    { name: 'Carnotadministrus', price: 1999.99,description: "if other CSS selectors with higher specificity are targeting the .price element, they may override the font size. To ensure your font size rule is applied, you can increase the specificity of your selector by using a more specific one like:", image: 'Carnotadministrus.jpeg' },
-    { name: 'Chappy', price: 2999.99,description: "if other CSS selectors with higher specificity are targeting the .price element, they may", image: 'Chappy.jpeg' },
-    { name: 'Chonkosaurus', price: 2499.99, image: 'Chonkosaurus.jpeg' },
-    { name: 'Creepclaw', price: 3599.99, image: 'Creepclaw.jpeg' },
-    { name: 'Eleganteryx', price: 4599.99, image: 'Eleganteryx.jpeg' },
-    { name: 'Gloomasaurus', price: 3999.99, image: 'Gloomasaurus.jpeg' },
-    { name: 'Johnny-Raptor', price: 3299.99, image: 'Johnny-Raptor.jpeg' },
-    { name: 'Karenodon', price: 2399.99, image: 'Karenodon.jpeg' },
-    { name: 'Purranosaurus', price: 4999.99, image: 'Purranosaurus.jpeg' },
-    { name: 'Rumoraptor', price: 2799.99, image: 'Rumoraptor.jpeg' },
-    { name: 'T-Wrecks', price: 3199.99, image: 'T-Wrecks.jpeg' },
-    { name: 'The Witness', price: 2999.99, image: 'The Witness.jpeg' }
+    { id: 1, serialNumber: 'a1b2c3d4-e5f6-7890-abcd-ef1234567890', name: 'Carnotadministrus', price: 1999.99, description: 'The dino for the small business tyrant. For those who have the grindset.', image: 'Carnotadministrus.jpeg' },
+    { id: 2, serialNumber: 'f1e2d3c4-b5a6-7890-1234-56789abcdef0', name: 'Chappy', price: 399.99, description: 'Feeling blue? Chappy is for you.', image: 'Chappy.jpeg' },
+    { id: 3, serialNumber: '1234abcd-5678-90ef-ghij-klmnopqrstuv', name: 'Chonkosaurus', price: 10999.99, description: 'Perfect reminder that you need to lose weight post-Thanksgiving.', image: 'Chonkosaurus.jpeg' },
+    { id: 4, serialNumber: 'abcd1234-ef56-7890-ghij-klmnopqrstuv', name: 'Creepclaw', price: 1499.99, description: 'That one awkward dinosaur from your middle school.', image: 'Creepclaw.jpeg' },
+    { id: 5, serialNumber: 'yzab1234-cdef-ghij-klmn-opqrstuvw', name: 'Eleganteryx', price: 1099.99, description: 'For the lady gym-rats. Or gym-dinos.', image: 'Eleganteryx.jpeg' },
+    { id: 6, serialNumber: '0987zyxw-vuts-rqpo-nmlk-jihgfedcba12', name: 'Gloomasaurus', price: 449.99, description: 'A dino to remind you that things can always be worse.', image: 'Gloomasaurus.jpeg' },
+    { id: 7, serialNumber: '5678mnop-qrst-uvwx-yzab-cdefghijkl34', name: 'Johnny-Raptor', price: 32.99, description: "Here's Johnny!", image: 'Johnny-Raptor.jpeg' },
+    { id: 8, serialNumber: 'abcd5678-efgh-ijkl-mnop-qrstuvwx9012', name: 'Estilosaurus', price: 7999.99, description: 'Flash this dino when you need to speak with the manager.', image: 'Estilosaurus.jpeg' },
+    { id: 9, serialNumber: 'mnop1234-qrst-uvwx-yzab-cdefghijkl56', name: 'Purranosaurus', price: 4999.99, description: 'A horrid science experiment gone wrong.', image: 'Purranosaurus.jpeg' },
+    { id: 10, serialNumber: 'ijkl5678-mnop-qrst-uvwx-yzabcdef9012', name: 'Rumoraptor', price: 1949.99, description: "A DinoTube drama queen/king.", image: 'Rumoraptor.jpeg' },
+    { id: 11, serialNumber: 'qrst1234-uvwx-yzab-cdef-ghijklmnop78', name: 'T. Wrecks', price: 24999.99, description: 'The largest known creature to exist. Ever.', image: 'T-Wrecks.jpeg' },
+    { id: 12, serialNumber: 'uvwx5678-yzab-cdef-ghij-klmnopqrst90', name: 'The Witness', price: 699.99, description: 'He saw it coming, but no one would listen to him. It was too late.', image: 'The Witness.jpeg' }
   ];
   res.render('index', { products });
 });
+
+
 
 module.exports = router;
