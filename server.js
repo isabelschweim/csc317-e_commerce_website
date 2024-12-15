@@ -18,6 +18,7 @@ const db = new sqlite3.Database(dbPath, (err) => {
 const indexRouter = require('./routes/index');
 const aboutRouter = require('./routes/about');
 const searchRouter = require('./routes/search');
+const searchApiRouter = require('./api/search');
 const faqRouter = require('./routes/faq');
 const loginRouter = require('./routes/login');
 const settingsRouter = require('./routes/settings');
@@ -25,6 +26,7 @@ const settingsRouter = require('./routes/settings');
 // Set up view engine to use EJS
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use('/', searchApiRouter);
 
 
 // Serve static files (images, CSS, JS)
