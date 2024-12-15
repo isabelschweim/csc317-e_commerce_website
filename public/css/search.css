@@ -308,6 +308,23 @@ button:active {
 }
 /* ----------------------------------------------FOOTER---------------------------------------------- */
 
+.search-result {
+  border: 1px solid #ddd;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.search-result h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.results {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
 /* Footer styling */
 footer {
     display: flex;
