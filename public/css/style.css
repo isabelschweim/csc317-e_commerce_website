@@ -39,7 +39,7 @@ header img {
     cursor: pointer; /* Add a pointer cursor to indicate it is clickable */
     position: relative; /* Ensure it's positioned relative to the header */
     z-index: 1; /* Ensure the logo is above the background */
-    height: 200px; /* Adjust the height of the logo */
+    height: 150px; /* Adjust the height of the logo */
     width: auto;   /* Ensure the aspect ratio of the logo is maintained */
 }
 
@@ -148,7 +148,7 @@ nav a {
 
 /* Target the third link specifically */
 .top-right-links a:nth-child(2) {
-    margin-top: 90px; /* Add space above the "Settings" link */
+    margin-top: 60px; /* Add space above the "Settings" link */
 }
 
 .top-right-links a:hover {
