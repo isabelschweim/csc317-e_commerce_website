@@ -24,7 +24,7 @@
 
 .remove-item-btn {
     background-color: red;
-    color: white;
+    font-size: 1rem;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
@@ -40,9 +40,9 @@
 
 .checkout-btn {
     background-color: green;
-    color: white;
     padding: 10px;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 .checkout-btn:hover {
