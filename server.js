@@ -27,6 +27,7 @@ const faqRouter = require('./routes/faq');
 const loginRouter = require('./routes/login');
 const settingsRouter = require('./routes/settings');
 const authRouter = require('./routes/auth');  // Add this line
+const cartRouter = require('./routes/cart');
 
 // Set up view engine to use EJS
 app.set('view engine', 'ejs');
@@ -46,6 +47,7 @@ app.use('/', faqRouter);        // FAQ page route
 app.use('/', loginRouter);      // Login page route
 app.use('/', settingsRouter);   // Settings page route
 app.use('/', authRouter);       // Authentication routes
+app.use('/', cartRouter);       // Cart page route
 
 // Start the server
 app.listen(port, () => {
