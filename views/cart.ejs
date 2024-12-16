@@ -3,24 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title> <!-- Page title -->
-    <link rel="stylesheet" href="/css/cart.css"> <!-- Your CSS file -->
-    <link rel="stylesheet" href="/css/style.css"> <!-- Correct path to shared.css -->
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <!-- Header and Logo (Shared across all pages) -->
     <header>
         <a href="/" id="headerLogo">
             <img src="/images/Logo.png" alt="Logo" height="100">
         </a>
-
         <div class="top-right-links">
             <a href="/login">Login/Register</a>
             <a href="/settings">Account/Settings</a>
         </div>
     </header>
 
-    <!-- Navbar (Shared across all pages) -->
     <nav>
         <input type="checkbox" id="toggle-menu" />
         <label for="toggle-menu" id="hamburger">&#9776;</label>
@@ -29,7 +26,7 @@
             <li><a href="/search">SEARCH</a></li>
             <li><a href="/about">ABOUT</a></li>
             <li><a href="/faq">FAQ</a></li>
-            <li id="cart-icon-container"> <!-- Cart icon wrapper -->
+            <li id="cart-icon-container">
                 <a href="/cart" id="cart-icon">
                     <img src="/images/my-cart.png" alt="Cart" />
                 </a>
@@ -37,44 +34,29 @@
         </ul>
     </nav>
 
-    <!-- Page-specific content -->
-    <h2>SHOPPING CART TEST PAGE, FEEL FREE TO MODIFY ~Tony</h2>
+    <h2>SHOPPING CART</h2>
     <p>Your selected NFTs are listed below. Review your items and proceed to checkout.</p>
     
     <div class="cart-container">
-        <div class="cart-item">
-            <img src="/images/nft-item1.png" alt="NFT Item 1" class="cart-item-image">
+        <% let totalPrice = 0; %>
+        <% cartItems.forEach(item => { %>
+        <div class="cart-item" data-id="<%= item.id %>">
+            <img src="<%= item.image %>" alt="<%= item.name %>" class="cart-item-image">
             <div class="cart-item-details">
-                <h3>NFT Item Name 1</h3>
-                <p>Price: $100.00</p>
-                <button class="remove-item-btn">Remove</button>
+                <h3><%= item.name %></h3>
+                <p>Price: $<%= item.price %></p>
+                <button class="remove-item-btn" onclick="removeItem(<%= item.id %>)">Remove</button>
             </div>
         </div>
-        <div class="cart-item">
-            <img src="/images/nft-item2.png" alt="NFT Item 2" class="cart-item-image">
-            <div class="cart-item-details">
-                <h3>NFT Item Name 2</h3>
-                <p>Price: $150.00</p>
-                <button class="remove-item-btn">Remove</button>
-            </div>
-        </div>
-        <div class="cart-item">
-            <img src="/images/nft-item3.png" alt="NFT Item 3" class="cart-item-image">
-            <div class="cart-item-details">
-                <h3>NFT Item Name 3</h3>
-                <p>Price: $200.00</p>
-                <button class="remove-item-btn">Remove</button>
-            </div>
-        </div>
+        <% totalPrice += item.price; %>
+        <% }) %>
 
-        <!-- Cart Summary -->
         <div class="cart-summary">
-            <h3>Total: $450.00</h3>
+            <h3>Total: $<%= totalPrice %></h3>
             <button id="checkout-btn" class="checkout-btn">Proceed to Checkout</button>
         </div>
     </div>
 
-    <!-- Footer (Shared across all pages) -->
     <footer>
         <div class="footer-section">
             <h3>Get to know us</h3>
