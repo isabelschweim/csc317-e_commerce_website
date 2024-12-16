@@ -3,41 +3,36 @@ const router = express.Router();
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
-router.get('/api/search', (req, res) => {
-  const searchTerm = req.query.q; // Get search query from URL parameter
 
-  // Path to the SQLite database
-  const dbPath = path.join(__dirname, '..', 'databases', 'products.sqlite');
+router.get('/search', (req, res) => {  // Changed from '/api/search' to '/search'
+    const searchTerm = req.query.q;
+    const dbPath = path.join(__dirname, '..', 'databases', 'users.sqlite'); // Change to correct database name
 
-  // Open database connection
-  const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err) => {
-	if (err) {
-	  console.error('Error connecting to database:', err.message);
-	  return res.status(500).json({ error: 'Database connection failed' });
-	}
+    const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err) => {
+        if (err) {
+            console.error('Error connecting to database:', err.message);
+            return res.status(500).json({ error: 'Database connection failed' });
+        }
 
-	// Prepare SQL query to search by title (case-insensitive)
-	const query = `SELECT * FROM NFTs WHERE NFTtitle LIKE ?`;
-	const searchParam = `%${searchTerm}%`; // % allows partial matches
+        const query = `SELECT * FROM NFTs WHERE NFTtitle LIKE ?`;
+        const searchParam = `%${searchTerm}%`;
 
-	// Execute the search query
-	db.all(query, [searchParam], (err, rows) => {
-	  // Close the database connection
-	  db.close((closeErr) => {
-		if (closeErr) {
-		  console.error('Error closing database:', closeErr.message);
-		}
+        db.all(query, [searchParam], (err, rows) => {
+            if (err) {
+                console.error('Error executing search query:', err.message);
+                db.close();
+                return res.status(500).json({ error: 'Search query failed' });
+            }
 
-		if (err) {
-		  console.error('Error executing search query:', err.message);
-		  return res.status(500).json({ error: 'Search query failed' });
-		}
-
-		// Send search results as JSON
-		res.json(rows);
-	  });
-	});
-  });
+            db.close((closeErr) => {
+                if (closeErr) {
+                    console.error('Error closing database:', closeErr.message);
+                }
+            });
+            
+            res.json(rows);
+        });
+    });
 });
 
 module.exports = router;

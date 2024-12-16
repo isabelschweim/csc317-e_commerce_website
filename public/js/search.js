@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <h3>${nft.NFTtitle}</h3>
             <p>${nft.NFTdescription}</p>
             <p>Price: $${nft.NFTprice}</p>
-            <p>Token: ${nft.NFTtoken}</p>
           </div>
         `).join('');
 
