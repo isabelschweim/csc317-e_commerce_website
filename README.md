@@ -17,37 +17,65 @@ You can purchase from our curated selection of non-fungible tokens from our home
 <pre>
 csc317-e_commerce_website/
 │
-├── node_modules/                # Contains all the dependencies installed via npm
+├── README.md                       # Project overview or documentation
+├── package-lock.json               # Contains the exact version of dependencies
+├── package.json                    # Contains metadata about the project and its dependencies
+├── server.js                       # Main entry point for the Express.js server
 │
-├── public/                      # Public directory, accessible by the client
-│   ├── css/                     # Contains stylesheets (e.g., style.css for page styling)
-│   │   └── style.css            # Main stylesheet for the website
-│   ├── images/                  # Contains image assets
-│   └── js/                      # Contains JavaScript files
-│       └── main.js              # Main JavaScript file for client-side functionality
+├── api                             # API-related files
+│   ├── search.js                   # API endpoint for searching
+│   └── testingSearch.js            # Testing for the search API
 │
-├── routes/                      # Contains route handlers for different pages
-│   ├── about.js                 # Route for handling the "About" page
-│   ├── faq.js                   # Route for handling the "FAQ" page
-│   ├── index.js                 # Route for handling the homepage
-│   ├── login.js                 # Route for handling the "Login" page
-│   ├── search.js                # Route for handling the "Search" page
-│   └── settings.js              # Route for handling the "Settings" page
+├── databases                       # Database-related files
+│   ├── createProductsDatabase.js   # Script to create the products database
+│   ├── createUserDatabase.js       # Script to create the user database
+│   ├── database.js                 # Database connection and utility functions
+│   ├── note.txt                    # A text file (possibly for notes or documentation)
+│   ├── products.db                 # SQLite database file for products
+│   ├── products.sqlite             # SQLite database file (another format of products.db)
+│   └── users.sqlite                # SQLite database file for users
 │
-├── views/                       # Contains the EJS view templates for rendering HTML dynamically
-│   ├── about.ejs                # EJS template for the "About" page
-│   ├── faq.ejs                  # EJS template for the "FAQ" page
-│   ├── index.ejs                # EJS template for the homepage
-│   ├── layout.ejs               # Layout template used by all pages (includes header, footer, etc.) [Not implemented yet]
-│   ├── login.ejs                # EJS template for the "Login" page
-│   ├── search.ejs               # EJS template for the "Search" page
-│   └── settings.ejs             # EJS template for the "Settings" page
+├── public                          # Publicly accessible assets like CSS, images, and JS
+│   ├── css                         # Stylesheets for the website
+│   │   ├── about.css               # Styles for the About page
+│   │   ├── cart.css                # Styles for the Cart page
+│   │   ├── faq.css                 # Styles for the FAQ page
+│   │   ├── index.css               # Styles for the homepage
+│   │   ├── login.css               # Styles for the Login page
+│   │   ├── search.css              # Styles for the Search page
+│   │   ├── settings.css            # Styles for the Settings page
+│   │   └── style.css               # Main stylesheet for the entire site
+│   │
+│   ├── images                       # Image assets for the website
+│   │   ├── Header_Background.png   # Header background image
+│   │   ├── Logo.png                # Logo image
+│   │   ├── back_to_top.png         # Image for a "back to top" button
+│   │   ├── my-cart.png             # Image for a shopping cart
+│   │   └── qr-code.png             # QR code image
+│   │
+│   └── js                           # JavaScript files for client-side functionality
+│       ├── auth.js                 # JavaScript file for authentication
+│       ├── main.js                 # Main JavaScript file with client-side functions
+│       └── search.js               # JavaScript file for search functionality
 │
-├── .gitignore                   
-├── package-lock.json            
-├── package.json                 
-├── README.md                    
-└── server.js                    # Main entry point for the Express.js server, which starts the application
+├── routes                          # Route handlers for different pages of the website
+│   ├── about.js                    # Route handler for the About page
+│   ├── auth.js                     # Route handler for authentication-related endpoints
+│   ├── cart.js                     # Route handler for the Cart page
+│   ├── faq.js                      # Route handler for the FAQ page
+│   ├── index.js                    # Route handler for the homepage
+│   ├── login.js                    # Route handler for the Login page
+│   ├── search.js                   # Route handler for the Search page
+│   └── settings.js                 # Route handler for the Settings page
+│
+└── views                           # EJS templates for rendering dynamic HTML
+    ├── about.ejs                   # EJS template for the About page
+    ├── cart.ejs                    # EJS template for the Cart page
+    ├── faq.ejs                     # EJS template for the FAQ page
+    ├── index.ejs                   # EJS template for the homepage
+    ├── login.ejs                   # EJS template for the Login page
+    ├── search.ejs                  # EJS template for the Search page
+    └── settings.ejs                # EJS template for the Settings page
 </pre>
 
 
