@@ -1,11 +1,12 @@
+<!-- views/cart.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
-    <link rel="stylesheet" href="/css/cart.css">
+    <title>Shopping Cart</title> <!-- Page title -->
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/cart.css"> <!-- Your CSS file -->
 </head>
 <body>
     <header>
@@ -34,7 +35,8 @@
         </ul>
     </nav>
 
-    <h2>SHOPPING CART</h2>
+    <!-- Page-specific content -->
+    <h2>SHOPPING CART TEST PAGE, FEEL FREE TO MODIFY ~Tony</h2>
     <p>Your selected NFTs are listed below. Review your items and proceed to checkout.</p>
     
     <div class="cart-container">
@@ -48,9 +50,24 @@
                 <button class="remove-item-btn" onclick="removeItem(<%= item.id %>)">Remove Item</button>
             </div>
         </div>
-        <% totalPrice += item.price; %>
-        <% }) %>
+        <div class="cart-item">
+            <img src="/images/nft-item2.png" alt="NFT Item 2" class="cart-item-image">
+            <div class="cart-item-details">
+                <h3>NFT Item Name 2</h3>
+                <p>Price: $150.00</p>
+                <button class="remove-item-btn">Remove</button>
+            </div>
+        </div>
+        <div class="cart-item">
+            <img src="/images/nft-item3.png" alt="NFT Item 3" class="cart-item-image">
+            <div class="cart-item-details">
+                <h3>NFT Item Name 3</h3>
+                <p>Price: $200.00</p>
+                <button class="remove-item-btn">Remove</button>
+            </div>
+        </div>
 
+        <!-- Cart Summary -->
         <div class="cart-summary">
             <h3>Total: $<%= totalPrice %></h3>
             <button id="checkout-btn" class="checkout-btn">Proceed to Checkout</button>
