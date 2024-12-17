@@ -52,7 +52,7 @@ router.post('/register', async (req, res) => {
         db.close();
     });
 });
-
+//  store the user ID in the session when they log in
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
     const db = getDb();
@@ -67,6 +67,10 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ error: 'Invalid username or password' });
         }
 
+        // Set user session
+        req.session.userId = user.id;
+        req.session.username = user.username;
+        
         // Return success with redirect instruction
         res.status(200).json({ 
             success: true, 

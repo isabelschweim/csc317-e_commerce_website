@@ -17,7 +17,11 @@ router.get('/', (req, res) => {
     { id: 11, serialNumber: 'qrst1234-uvwx-yzab-cdef-ghijklmnop78', name: 'T. Wrecks', price: 24999.99, description: 'The largest known creature to exist. Ever.', image: 'T-Wrecks.jpeg' },
     { id: 12, serialNumber: 'uvwx5678-yzab-cdef-ghij-klmnopqrst90', name: 'The Witness', price: 699.99, description: 'He saw it coming, but no one would listen to him. It was too late.', image: 'The Witness.jpeg' }
   ];
-  res.render('index', { products });
+  res.render('index', { 
+    products,
+    userId: req.session.userId,
+    username: req.session.username
+});
 });
 
 

@@ -1,0 +1,34 @@
+<!-- views/purchase-success.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Success</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/purchase-success.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <%- include('partials/nav') %>
+
+    <div class="success-container">
+        <h1>Congratulations! 🎉</h1>
+        <p>Your purchase was successful! Here are your new NFTs:</p>
+        
+        <div class="purchased-items">
+            <% purchases.forEach(function(item) { %>
+                <div class="purchase-item">
+                    <img src="/images/<%= item.image %>" alt="<%= item.NFTtitle %>">
+                    <h3><%= item.NFTtitle %></h3>
+                    <p>Purchase Date: <%= new Date(item.purchase_date).toLocaleDateString() %></p>
+                </div>
+            <% }); %>
+        </div>
+
+        <a href="/settings" class="view-history-btn">View Purchase History</a>
+    </div>
+
+    <%- include('partials/footer') %>
+</body>
+</html>

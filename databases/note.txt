@@ -1,1 +1,0 @@
-the database for users.sqlite needs column (row?) for purchase history. So username, password, real name, and purchases. (Once a user buys something on the site, it will add the purchase name (or id?) to the database.

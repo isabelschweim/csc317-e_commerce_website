@@ -48,7 +48,8 @@
                             <h3><%= product.name %></h3>
                             <p><%= product.description %></p>
                             <p class="price">$<%= product.price %></p>
-                            <button class="add-to-cart-btn">Add to cart</button>
+                            <!-- In views/index.ejs, update the button in the products loop -->
+<button class="add-to-cart-btn" data-nft-id="<%= product.id %>">Add to cart</button>
                         </li>
                     <% }); %>
                 </ul>

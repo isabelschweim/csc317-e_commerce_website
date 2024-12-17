@@ -9,14 +9,22 @@ document.addEventListener('DOMContentLoaded', () => {
     messageDiv.style.textAlign = 'center';
 
     function showMessage(message, isError = false) {
-        messageDiv.textContent = message;
-        messageDiv.style.backgroundColor = isError ? '#ffebee' : '#e8f5e9';
-        messageDiv.style.color = isError ? '#c62828' : '#2e7d32';
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message-container';
+        const messageContent = document.createElement('div');
+        messageContent.className = isError ? 'error-message' : 'success-message';
+        messageContent.textContent = message;
+        messageDiv.appendChild(messageContent);
         
-        const container = document.querySelector('.login-container');
-        if (!container.contains(messageDiv)) {
-            container.insertBefore(messageDiv, container.firstChild);
-        }
+        // Insert at the top of the body, right after the nav
+        const nav = document.querySelector('nav');
+        nav.parentNode.insertBefore(messageDiv, nav.nextSibling);
+    
+        // Fade out after 5 seconds
+        setTimeout(() => {
+            messageDiv.style.opacity = '0';
+            setTimeout(() => messageDiv.remove(), 1000);
+        }, 5000);
     }
 
     if (loginForm) {

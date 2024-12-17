@@ -39,6 +39,14 @@
 
      <!-- Page-specific content -->
     <div class="login-container">
+
+        <div class="message-container" id="message-container">
+            <% if (typeof message !== 'undefined' && message) { %>
+                <div class="success-message">
+                    <%= message %>
+                </div>
+            <% } %>
+        </div>
         
         <!-- Login Section -->
         <div class="form-section login">

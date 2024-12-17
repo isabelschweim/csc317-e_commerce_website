@@ -37,8 +37,55 @@
         </ul>
     </nav>
 
+    <!-- Success message -->
+    <div id="message-container" class="message-container"></div>
+
     <!-- Page-specific content -->
     <div class="settings-container">
+
+        <% if (typeof message !== 'undefined' && message) { %>
+            <div id="message-container" class="message-container">
+                <div class="success-message">
+                    <%= message %>
+                </div>
+            </div>
+        <% } %>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const messageContainer = document.getElementById('message-container');
+                if (messageContainer && messageContainer.innerHTML.trim() !== '') {
+                    setTimeout(() => {
+                        messageContainer.style.opacity = '0';
+                        setTimeout(() => {
+                            messageContainer.style.display = 'none';
+                        }, 1000);
+                    }, 5000);
+                }
+            });
+        </script>
+
+<div class="settings-section purchase-history">
+    <h2>Purchase History</h2>
+    <% if (!user) { %>
+        <p>Please <a href="/login">log in</a> to view your purchase history.</p>
+    <% } else if (purchaseHistory && purchaseHistory.length > 0) { %>
+        <div class="purchase-list">
+            <% purchaseHistory.forEach(function(purchase) { %>
+                <div class="purchase-item">
+                    <img src="/images/<%= purchase.image %>" alt="<%= purchase.NFTtitle %>">
+                    <div class="purchase-details">
+                        <h3><%= purchase.NFTtitle %></h3>
+                        <p>Purchased on: <%= new Date(purchase.purchase_date).toLocaleDateString() %></p>
+                        <p>Price: $<%= purchase.NFTprice %></p>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    <% } else { %>
+        <p>No purchase history available.</p>
+    <% } %>
+</div>
 
         <!-- General Settings Section -->
         <div class="settings-section general">
@@ -95,6 +142,8 @@
                 <button class="form-button" type="submit">Update Password</button>
             </form>
         </div>
+
+        
     
         <!-- Two-Factor Authentication Section -->
         <div id="2fa-section" class="settings-section">

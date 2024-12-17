@@ -3,11 +3,12 @@ const path = require('path');
 const fs = require('fs');
 
 // Define the path to the database
-const dbPath = path.join(__dirname, 'databases', 'users.sqlite');
+const dbDir = path.join(__dirname, 'databases');
+const dbPath = path.join(dbDir, 'users.sqlite');
 
-// Ensure the databases directory exists
-if (!fs.existsSync(path.join(__dirname, 'databases'))) {
-    fs.mkdirSync(path.join(__dirname, 'databases'));
+// Create the databases directory if it doesn't exist
+if (!fs.existsSync(dbDir)) {
+    fs.mkdirSync(dbDir, { recursive: true });
 }
 
 // Remove the existing database file if it exists
@@ -20,7 +21,7 @@ const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
         console.error('Error opening database:', err.message);
     } else {
-        console.log('Database created successfully.');
+        console.log('Database created successfully at:', dbPath);
     }
 });
 
@@ -61,6 +62,45 @@ db.serialize(() => {
         nft_id INTEGER NOT NULL,
         purchase_date DATETIME DEFAULT CURRENT_TIMESTAMP,
         purchase_price REAL NOT NULL,
+        FOREIGN KEY (user_id) REFERENCES users(id),
+        FOREIGN KEY (nft_id) REFERENCES NFTs(id)
+    )`, (err) => {
+        if (err) {
+            console.error('Error creating purchases table:', err.message);
+        } else {
+            console.log('Purchases table created successfully.');
+        }
+    });
+
+    db.run(`CREATE TABLE IF NOT EXISTS cart (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        nft_id INTEGER NOT NULL,
+        date_added DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (user_id) REFERENCES users(id),
+        FOREIGN KEY (nft_id) REFERENCES NFTs(id)
+    )`);
+    
+    db.run(`CREATE TABLE IF NOT EXISTS purchases (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        nft_id INTEGER NOT NULL,
+        purchase_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+        credit_card TEXT NOT NULL,
+        ssn TEXT NOT NULL,
+        mothers_maiden_name TEXT NOT NULL,
+        FOREIGN KEY (user_id) REFERENCES users(id),
+        FOREIGN KEY (nft_id) REFERENCES NFTs(id)
+    )`);
+
+    db.run(`CREATE TABLE IF NOT EXISTS purchases (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        nft_id INTEGER NOT NULL,
+        purchase_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+        credit_card TEXT NOT NULL,
+        ssn TEXT NOT NULL,
+        mothers_maiden_name TEXT NOT NULL,
         FOREIGN KEY (user_id) REFERENCES users(id),
         FOREIGN KEY (nft_id) REFERENCES NFTs(id)
     )`, (err) => {

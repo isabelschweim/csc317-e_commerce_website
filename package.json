@@ -4,6 +4,7 @@
     "ejs": "^3.1.10",
     "express": "^4.21.1",
     "express-json": "^1.0.0",
+    "express-session": "^1.18.1",
     "sqlite3": "^5.1.7"
   },
   "name": "csc317-e_commerce_website",

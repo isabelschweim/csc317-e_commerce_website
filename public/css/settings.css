@@ -16,6 +16,35 @@
     padding: 20px;
 }
 
+/* Message container styling */
+.message-container {
+    width: 100%;
+    max-width: 90%;
+    margin: 20px auto;
+    text-align: center;
+    position: relative;  
+    z-index: 1;         
+    left: 50%;         
+    transform: translateX(-50%); 
+}
+
+.success-message {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: inline-block;  
+    min-width: 300px;
+}
+
+/* Adjust settings container margin to accommodate message */
+.settings-container {
+    margin-top: 40px;  /* Increase this value */
+    position: relative;
+    z-index: 0;
+}
+
 /* General Settings and Change Password sections occupy 25% each */
 .settings-section.general,
 .settings-section.password {
@@ -87,4 +116,8 @@ button:hover {
 button:active {
     transform: translateY(1px);
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.message-container {
+    transition: opacity 1s ease-in-out;
 }

@@ -1,30 +1,36 @@
-// Ensure that the DOM is fully loaded before running any scripts
+// In public/js/main.js
 document.addEventListener("DOMContentLoaded", function() {
-    // Bid button functionality
-    let bidButtons = document.querySelectorAll(".add-to-cart-btn");
+    const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
 
-    bidButtons.forEach(button => {
-        button.addEventListener("click", function(event) {
-            let bidButtonEl = event.target;
-            bidButtonEl.textContent = "Added!";
-            bidButtonEl.style.background = "linear-gradient(to bottom, #46ae4b 0%, #2f7c33 100%)";
+    addToCartButtons.forEach(button => {
+        button.addEventListener("click", async function(event) {
+            const nftId = this.dataset.nftId;
+            try {
+                const response = await fetch('/api/cart/add', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ nftId }),
+                    credentials: 'same-origin' // Important! This sends cookies with the request
+                });
+
+                const data = await response.json();
+                
+                if (response.status === 401) {
+                    alert('Please log in to add items to cart');
+                    window.location.href = '/login';
+                    return;
+                }
+
+                if (data.success) {
+                    this.textContent = "Added!";
+                    this.style.background = "linear-gradient(to bottom, #46ae4b 0%, #2f7c33 100%)";
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error adding to cart');
+            }
         });
     });
-
-    // Back to top button functionality
-    let backToTopBtn = document.getElementById("backToTopBtn");
-
-    // When the user scrolls down 20px from the top, show the button
-    window.onscroll = function() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            backToTopBtn.style.display = "block";
-        } else {
-            backToTopBtn.style.display = "none";
-        }
-    };
-
-    // When the user clicks the button, scroll to the top of the document
-    backToTopBtn.onclick = function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' }); // Smooth scroll to top
-    };
 });
