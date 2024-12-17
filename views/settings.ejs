@@ -65,28 +65,28 @@
             });
         </script>
 
-<div class="settings-section purchase-history">
-    <h2>Purchase History</h2>
-    <% if (!user) { %>
-        <p>Please <a href="/login">log in</a> to view your purchase history.</p>
-    <% } else if (purchaseHistory && purchaseHistory.length > 0) { %>
-        <div class="purchase-list">
-            <% purchaseHistory.forEach(function(purchase) { %>
-                <div class="purchase-item">
-                    <img src="/images/<%= purchase.NFTtitle.toLowerCase().replace(/\s+/g, '-') %>.jpeg" 
-                         alt="<%= purchase.NFTtitle %>">
-                         <div class="purchase-details">
-                            <h3><%= purchase.NFTtitle %></h3>
-                            <p>Purchased on: <%= new Date(purchase.purchase_date).toLocaleDateString() %></p>
-                            <p>Price: $<%= purchase.NFTprice.toFixed(2) %></p>
-                        </div>
-                </div>
-            <% }); %>
-        </div>
-    <% } else { %>
-        <p>No purchase history available.</p>
-    <% } %>
-</div>
+    <div class="settings-section purchase-history">
+        <h2>Purchase History</h2>
+        <% if (!user) { %>
+            <p>Please <a href="/login">log in</a> to view your purchase history.</p>
+        <% } else if (purchaseHistory && purchaseHistory.length > 0) { %>
+            <div class="purchase-list">
+                <% purchaseHistory.forEach(function(purchase) { %>
+                    <div class="purchase-item">
+                        <img src="/images/<%= purchase.NFTtitle.toLowerCase().replace(/\s+/g, '-') %>.jpeg" 
+                            alt="<%= purchase.NFTtitle %>">
+                            <div class="purchase-details">
+                                <h3><%= purchase.NFTtitle %></h3>
+                                <p>Purchased on: <%= new Date(purchase.purchase_date).toLocaleDateString() %></p>
+                                <p>Price: $<%= purchase.NFTprice.toFixed(2) %></p>
+                            </div>
+                    </div>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <p>No purchase history available.</p>
+        <% } %>
+    </div>
 
         <!-- General Settings Section -->
         <div class="settings-section general">

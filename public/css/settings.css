@@ -45,6 +45,10 @@
     z-index: 0;
 }
 
+.purchase-history {
+    border-right: 1px solid #ddd;
+}
+
 .purchase-item {
     display: flex;
     align-items: flex-start;
