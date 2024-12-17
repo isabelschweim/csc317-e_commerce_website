@@ -43,9 +43,7 @@ router.get('/checkout', (req, res) => {
     });
 });
 
-router.post('/checkout', async (req, res) => {
-    console.log('Checkout initiated:', req.session?.userId); // Debug log
-
+router.post('/checkout', (req, res) => {
     if (!req.session?.userId) {
         return res.status(401).json({ error: 'Please log in to complete checkout' });
     }
@@ -58,78 +56,81 @@ router.post('/checkout', async (req, res) => {
 
     const db = getDb();
 
-    try {
-        // Get cart items first
-        db.all('SELECT nft_id FROM cart WHERE user_id = ?', [req.session.userId], (err, cartItems) => {
-            if (err) {
-                console.error('Error fetching cart items:', err);
-                db.close();
-                return res.status(500).json({ error: 'Error fetching cart items' });
-            }
+    // Get cart items with their prices
+    db.all(`
+        SELECT c.nft_id, n.NFTprice
+        FROM cart c
+        JOIN NFTs n ON c.nft_id = n.id
+        WHERE c.user_id = ?
+    `, [req.session.userId], (err, cartItems) => {
+        if (err) {
+            console.error('Error fetching cart items:', err);
+            db.close();
+            return res.status(500).json({ error: 'Error fetching cart items' });
+        }
 
-            if (!cartItems || cartItems.length === 0) {
-                db.close();
-                return res.status(400).json({ error: 'Cart is empty' });
-            }
+        if (!cartItems || cartItems.length === 0) {
+            db.close();
+            return res.status(400).json({ error: 'Cart is empty' });
+        }
 
-            // Begin transaction
-            db.serialize(() => {
-                db.run('BEGIN TRANSACTION');
+        db.serialize(() => {
+            db.run('BEGIN TRANSACTION');
 
-                try {
-                    // Insert each purchase
-                    const stmt = db.prepare(`
-                        INSERT INTO purchases (user_id, nft_id, credit_card, ssn, mothers_maiden_name)
-                        VALUES (?, ?, ?, ?, ?)
-                    `);
-
-                    cartItems.forEach(item => {
-                        stmt.run([
-                            req.session.userId,
-                            item.nft_id,
-                            creditCard,
+            const insertPromises = cartItems.map(item => {
+                return new Promise((resolve, reject) => {
+                    db.run(`
+                        INSERT INTO purchases (
+                            user_id,
+                            nft_id,
+                            credit_card,
                             ssn,
-                            mothersMaidenName
-                        ], (err) => {
-                            if (err) {
-                                console.error('Error inserting purchase:', err);
-                                throw err;
-                            }
-                        });
+                            mothers_maiden_name,
+                            purchase_price
+                        ) VALUES (?, ?, ?, ?, ?, ?)
+                    `, [
+                        req.session.userId,
+                        item.nft_id,
+                        creditCard,
+                        ssn,
+                        mothersMaidenName,
+                        item.NFTprice
+                    ], (err) => {
+                        if (err) reject(err);
+                        else resolve();
                     });
+                });
+            });
 
-                    stmt.finalize();
-
-                    // Clear cart
+            Promise.all(insertPromises)
+                .then(() => {
+                    // Clear cart after successful purchases
                     db.run('DELETE FROM cart WHERE user_id = ?', [req.session.userId], (err) => {
                         if (err) {
                             console.error('Error clearing cart:', err);
-                            throw err;
+                            db.run('ROLLBACK');
+                            db.close();
+                            return res.status(500).json({ error: 'Error processing purchase' });
                         }
 
                         db.run('COMMIT', (err) => {
+                            db.close();
                             if (err) {
                                 console.error('Error committing transaction:', err);
-                                throw err;
+                                return res.status(500).json({ error: 'Error processing purchase' });
                             }
-
-                            db.close();
                             res.json({ success: true, message: 'Purchase successful!' });
                         });
                     });
-                } catch (error) {
-                    console.error('Transaction error:', error);
+                })
+                .catch(error => {
+                    console.error('Error during purchase:', error);
                     db.run('ROLLBACK');
                     db.close();
                     res.status(500).json({ error: 'Error processing purchase' });
-                }
-            });
+                });
         });
-    } catch (error) {
-        console.error('Checkout error:', error);
-        if (db) db.close();
-        res.status(500).json({ error: 'Error processing checkout' });
-    }
+    });
 });
 
 module.exports = router;

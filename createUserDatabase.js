@@ -55,7 +55,7 @@ db.serialize(() => {
         }
     });
 
-
+    // Create cart table
     db.run(`CREATE TABLE IF NOT EXISTS cart (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         user_id INTEGER NOT NULL,
@@ -63,19 +63,24 @@ db.serialize(() => {
         date_added DATETIME DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (user_id) REFERENCES users(id),
         FOREIGN KEY (nft_id) REFERENCES NFTs(id)
-    )`);
-    
+    )`, (err) => {
+        if (err) {
+            console.error('Error creating cart table:', err.message);
+        } else {
+            console.log('Cart table created successfully.');
+        }
+    });
 
-
+    // Create purchases table
     db.run(`CREATE TABLE IF NOT EXISTS purchases (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         user_id INTEGER NOT NULL,
         nft_id INTEGER NOT NULL,
         purchase_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+        credit_card TEXT NOT NULL,
+        ssn TEXT NOT NULL,
+        mothers_maiden_name TEXT NOT NULL,
         purchase_price REAL NOT NULL,
-        credit_card TEXT,
-        ssn TEXT,
-        mothers_maiden_name TEXT,
         FOREIGN KEY (user_id) REFERENCES users(id),
         FOREIGN KEY (nft_id) REFERENCES NFTs(id)
     )`, (err) => {
@@ -131,14 +136,14 @@ db.serialize(() => {
     });
     insertNFTStmt.finalize();
 
-    // Add some sample purchase data
+    // Insert sample purchases
     const samplePurchases = [
-        [1, 3, 10999.99],  // Ronald buys Chonkosaurus
-        [2, 7, 7999.99],   // Rock buys Karenodon
-        [3, 11, 24999.99], // Spongebob buys T. Wrecks
+        [1, 3, 10999.99, '1234567890123456', '123-45-6789', 'Smith'],  // Ronald buys Chonkosaurus
+        [2, 7, 7999.99, '9876543210987654', '987-65-4321', 'Johnson'],   // Rock buys Estilosaurus
+        [3, 11, 24999.99, '1111222233334444', '111-22-3333', 'Squarepants'] // Spongebob buys T. Wrecks
     ];
 
-    const insertPurchaseStmt = db.prepare('INSERT INTO purchases (user_id, nft_id, purchase_price) VALUES (?, ?, ?)');
+    const insertPurchaseStmt = db.prepare('INSERT INTO purchases (user_id, nft_id, purchase_price, credit_card, ssn, mothers_maiden_name) VALUES (?, ?, ?, ?, ?, ?)');
     samplePurchases.forEach(purchase => {
         insertPurchaseStmt.run(purchase, (err) => {
             if (err) {
@@ -146,40 +151,14 @@ db.serialize(() => {
             }
         });
     });
-    insertPurchaseStmt.finalize((err) => {
-        if (err) {
-            console.error('Error finalizing statements:', err.message);
-        } else {
-            console.log('All data inserted successfully.');
-        }
-    });
+    insertPurchaseStmt.finalize();
 });
-const samplePurchases = [
-    [1, 3, 10999.99, '1234567890123456', '123-45-6789', 'Smith'],  // Ronald buys Chonkosaurus
-    [2, 7, 7999.99, '9876543210987654', '987-65-4321', 'Johnson'],   // Rock buys Estilosaurus
-    [3, 11, 24999.99, '1111222233334444', '111-22-3333', 'Squarepants'], // Spongebob buys T. Wrecks
-];
 
-const insertPurchaseStmt = db.prepare('INSERT INTO purchases (user_id, nft_id, purchase_price, credit_card, ssn, mothers_maiden_name) VALUES (?, ?, ?, ?, ?, ?)');
-samplePurchases.forEach(purchase => {
-    insertPurchaseStmt.run(purchase, (err) => {
-        if (err) {
-            console.error('Error inserting purchase:', err.message);
-        }
-    });
-});
-insertPurchaseStmt.finalize((err) => {
+// Close database connection
+db.close((err) => {
     if (err) {
-        console.error('Error finalizing statements:', err.message);
+        console.error('Error closing database:', err.message);
     } else {
-        console.log('All data inserted successfully.');
+        console.log('Database connection closed.');
     }
-    db.close((err) => {
-        if (err) {
-            console.error('Error closing database:', err.message);
-        } else {
-            console.log('Database connection closed.');
-        }
-    });
 });
-
