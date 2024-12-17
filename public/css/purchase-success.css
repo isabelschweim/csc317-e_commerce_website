@@ -3,6 +3,7 @@
     margin: 40px auto;
     padding: 20px;
     text-align: center;
+    border-right: 1px solid #ddd;
 }
 
 .purchased-items {
