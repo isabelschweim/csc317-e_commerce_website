@@ -22,66 +22,78 @@ You can purchase from our curated selection of non-fungible tokens from our home
 # Project Structure 
 <pre>
 csc317-e_commerce_website/
-│
 ├── README.md                       # Project overview or documentation
 ├── package-lock.json               # Contains the exact version of dependencies
 ├── package.json                    # Contains metadata about the project and its dependencies
 ├── server.js                       # Main entry point for the Express.js server
 │
 ├── api                             # API-related files
+│   ├── cart.js                     # API endpoint for Cart functionality
+│   ├── checkDb.js                  # API for checking database connectivity
 │   ├── search.js                   # API endpoint for searching
 │   └── testingSearch.js            # Testing for the search API
 │
+├── createProductsDatabase.js       # Script to create the products database
+├── createUserDatabase.js           # Script to create the user database
+│
 ├── databases                       # Database-related files
-│   ├── createProductsDatabase.js   # Script to create the products database
-│   ├── createUserDatabase.js       # Script to create the user database
 │   ├── database.js                 # Database connection and utility functions
-│   ├── note.txt                    # A text file (possibly for notes or documentation)
 │   ├── products.db                 # SQLite database file for products
 │   ├── products.sqlite             # SQLite database file (another format of products.db)
 │   └── users.sqlite                # SQLite database file for users
 │
 ├── public                          # Publicly accessible assets like CSS, images, and JS
+│   ├── checkout.js                 # JavaScript for the Checkout page
 │   ├── css                         # Stylesheets for the website
 │   │   ├── about.css               # Styles for the About page
 │   │   ├── cart.css                # Styles for the Cart page
+│   │   ├── checkout.css            # Styles for the Checkout page
 │   │   ├── faq.css                 # Styles for the FAQ page
 │   │   ├── index.css               # Styles for the homepage
 │   │   ├── login.css               # Styles for the Login page
+│   │   ├── newsletter.css          # Styles for the Newsletter section
+│   │   ├── pop_up_ad.css           # Styles for pop-up advertisements
+│   │   ├── purchase-success.css    # Styles for the Purchase Success page
 │   │   ├── search.css              # Styles for the Search page
 │   │   ├── settings.css            # Styles for the Settings page
 │   │   └── style.css               # Main stylesheet for the entire site
 │   │
-│   ├── images                       # Image assets for the website
-│   │   ├── Header_Background.png   # Header background image
-│   │   ├── Logo.png                # Logo image
-│   │   ├── back_to_top.png         # Image for a "back to top" button
-│   │   ├── my-cart.png             # Image for a shopping cart
-│   │   └── qr-code.png             # QR code image
+│   ├── images                       # Image assets for the website (no content shown here)
 │   │
-│   └── js                           # JavaScript files for client-side functionality
-│       ├── auth.js                 # JavaScript file for authentication
-│       ├── main.js                 # Main JavaScript file with client-side functions
-│       └── search.js               # JavaScript file for search functionality
+│   ├── js                          # JavaScript files for client-side functionality
+│   │   ├── auth.js                 # JavaScript file for authentication
+│   │   ├── main.js                 # Main JavaScript file with client-side functions
+│   │   ├── pop_up_ad.js            # JavaScript for handling pop-up advertisements
+│   │   └── search.js               # JavaScript file for search functionality
+│   │
+│   └── newsletter                  # HTML files related to newsletter success and failure
+│       ├── emailExists.html        # HTML template for email exists scenario
+│       ├── fail.html               # HTML template for failure in newsletter subscription
+│       └── success.html            # HTML template for successful subscription
 │
 ├── routes                          # Route handlers for different pages of the website
 │   ├── about.js                    # Route handler for the About page
 │   ├── auth.js                     # Route handler for authentication-related endpoints
 │   ├── cart.js                     # Route handler for the Cart page
+│   ├── checkout.js                 # Route handler for the Checkout page
 │   ├── faq.js                      # Route handler for the FAQ page
 │   ├── index.js                    # Route handler for the homepage
 │   ├── login.js                    # Route handler for the Login page
+│   ├── purchase.js                 # Route handler for the Purchase page
 │   ├── search.js                   # Route handler for the Search page
 │   └── settings.js                 # Route handler for the Settings page
 │
 └── views                           # EJS templates for rendering dynamic HTML
     ├── about.ejs                   # EJS template for the About page
     ├── cart.ejs                    # EJS template for the Cart page
+    ├── checkout.ejs                # EJS template for the Checkout page
     ├── faq.ejs                     # EJS template for the FAQ page
     ├── index.ejs                   # EJS template for the homepage
     ├── login.ejs                   # EJS template for the Login page
+    ├── purchase-success.ejs        # EJS template for the Purchase Success page
     ├── search.ejs                  # EJS template for the Search page
     └── settings.ejs                # EJS template for the Settings page
+
 </pre>
 
 
