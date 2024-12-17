@@ -83,7 +83,45 @@
                 </form>
             </div>
         </div>
+
+        <script>
+            document.getElementById('payment-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const formData = {
+                    creditCard: document.getElementById('credit-card').value,
+                    ssn: document.getElementById('ssn').value,
+                    mothersMaidenName: document.getElementById('mothers-maiden-name').value
+                };
+        
+                try {
+                    const response = await fetch('/checkout', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData),
+                        credentials: 'same-origin' 
+                    });
+        
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        alert('Purchase successful! Redirecting to your account...');
+                        window.location.href = '/settings';
+                    } else {
+                        alert(data.error || 'Error processing payment');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Error processing payment. Please try again.');
+                }
+            });
+        </script>
+
     </main>
+
+    
 
     <!-- Footer -->
     <footer>
@@ -117,38 +155,6 @@
         </div>
     </footer>
 
-    <script>
-        document.getElementById('payment-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const formData = {
-                creditCard: document.getElementById('credit-card').value,
-                ssn: document.getElementById('ssn').value,
-                mothersMaidenName: document.getElementById('mothers-maiden-name').value
-            };
-
-            try {
-                const response = await fetch('/checkout', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                });
-
-                const data = await response.json();
-                
-                if (data.success) {
-                    alert('Purchase successful! Redirecting to your account...');
-                    window.location.href = '/settings';
-                } else {
-                    alert(data.error || 'Error processing payment');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Error processing payment');
-            }
-        });
-    </script>
+   
 </body>
 </html>
