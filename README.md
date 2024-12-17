@@ -12,6 +12,12 @@ Bored Dinosaurs
 Our store sells rare dinosaur NFTs. Very valuable NFTs.
 You can purchase from our curated selection of non-fungible tokens from our homepage and once checkout is complete, you’ll be provided unique keys to add to your digital wallet.
 
+# dependencies
+* npm install
+* npm install express-session
+* npm install bcrypt express-json
+* npm install node-fetch@2
+* npm install dotenv
 
 # Project Structure 
 <pre>
