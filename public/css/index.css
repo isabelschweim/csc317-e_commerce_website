@@ -75,3 +75,51 @@ button:active {
     transform: translateY(1px);
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
 }
+@media (max-width: 600px) {
+    
+
+    /*----------------------------------------------MOBILE PRODUCTS--------------------------------------- */
+
+    h3, p {
+        width: 80%; /* Make text elements take full width */
+        max-width: 600px; /* Limit text width */
+        text-align: center; /* Center-align text */
+        margin: 0 auto; /* Center the text block */
+        padding: 10px; /* Add some padding for spacing */
+    }
+
+    #products h3, #products p, #products .price {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #products ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: block; /* Stack items vertically */
+    }
+    #products li {
+        width: 100%; /* Each item takes full width */
+        margin: 10px 0;
+        display: block; /* Ensure items are block elements */
+        text-align: center; /* Center content horizontally */
+    }
+
+    #products img {
+        width: 80%; /* Adjust image width for mobile view */
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .price {
+        display: inline-block; /* Allows text-align: center to center the button */
+        margin: 10px auto;     /* Ensure margins are set to auto */
+        font-size: 1.1em;
+    }
+
+    button {
+        display: inline-block; /* Allows text-align: center to center the button */
+        margin: 10px auto;     /* Ensure margins are set to auto */
+    }
+}
