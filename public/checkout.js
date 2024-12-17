@@ -5,12 +5,13 @@ document.addEventListener('DOMContentLoaded', function() {
     checkoutForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
+        // Takes in user values for credit card and other important features
         const formData = {
             creditCard: document.getElementById('credit-card').value,
             ssn: document.getElementById('ssn').value,
             mothersMaidenName: document.getElementById('mothers-maiden-name').value
         };
-
+// Attempt to POST, awaits response, and catches error if any
         try {
             const response = await fetch('/api/cart/checkout', {
                 method: 'POST',
