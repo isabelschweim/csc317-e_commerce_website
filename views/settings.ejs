@@ -73,12 +73,13 @@
         <div class="purchase-list">
             <% purchaseHistory.forEach(function(purchase) { %>
                 <div class="purchase-item">
-                    <img src="/images/<%= purchase.image %>" alt="<%= purchase.NFTtitle %>">
-                    <div class="purchase-details">
-                        <h3><%= purchase.NFTtitle %></h3>
-                        <p>Purchased on: <%= new Date(purchase.purchase_date).toLocaleDateString() %></p>
-                        <p>Price: $<%= purchase.NFTprice %></p>
-                    </div>
+                    <img src="/images/<%= purchase.NFTtitle.toLowerCase().replace(/\s+/g, '-') %>.jpeg" 
+                         alt="<%= purchase.NFTtitle %>">
+                         <div class="purchase-details">
+                            <h3><%= purchase.NFTtitle %></h3>
+                            <p>Purchased on: <%= new Date(purchase.purchase_date).toLocaleDateString() %></p>
+                            <p>Price: $<%= purchase.NFTprice.toFixed(2) %></p>
+                        </div>
                 </div>
             <% }); %>
         </div>
@@ -90,20 +91,13 @@
         <!-- General Settings Section -->
         <div class="settings-section general">
             <h2>General Settings</h2>
-
+            
             <section>
                 <h3>General Information</h3>
-                <form>
+                <form id="username-form" onsubmit="return false;">  <!-- Add this onsubmit -->
                     <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" value="JohnDoe123">
-                    
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" value="johndoe@example.com">
-                    
-                    <label for="phone">Phone Number:</label>
-                    <input type="tel" id="phone" name="phone" value="(123) 456-7890">
-                    
-                    <button class="form-button" type="submit">Save Changes</button>
+                    <input type="text" id="username" name="username" value="<%= user ? user.username : '' %>" required>
+                    <button class="form-button" onclick="updateUsername()">Save Changes</button>  <!-- Change to onclick -->
                 </form>
             </section>
         
@@ -111,12 +105,9 @@
                 <h3>Notifications</h3>
                 <form>
                     <label>
-                        <input type="checkbox" checked> Receive email notifications
+                        <input type="checkbox" checked> Receive notifications
                     </label>
-                    <label>
-                        <input type="checkbox"> Receive SMS notifications
-                    </label>
-                    <select id="email-preferences" name="email-preferences">
+                    <select id="notification-preferences" name="notification-preferences">
                         <option value="all">Receive all notifications</option>
                         <option value="important">Only important updates</option>
                         <option value="none">No notifications</option>
@@ -124,66 +115,31 @@
                     <button class="form-button" type="submit">Update Preferences</button>
                 </form>
             </section>
+            <section class="logout-section">
+                <h3>Sign Out</h3>
+                <button id="logout-btn" class="form-button" onclick="logout()">Sign Out</button>
+            </section>
         </div>
     
         <!-- Change Password Section -->
         <div class="settings-section password">
             <h2>Change Password</h2>
-            <form>
+            <form id="password-form" onsubmit="return false;">
                 <label for="current-password">Current Password:</label>
-                <input type="password" id="current-password" name="current-password">
-    
+                <input type="password" id="current-password" name="currentPassword" required>
+        
                 <label for="new-password">New Password:</label>
-                <input type="password" id="new-password" name="new-password">
-    
+                <input type="password" id="new-password" name="newPassword" required>
+        
                 <label for="confirm-password">Confirm New Password:</label>
-                <input type="password" id="confirm-password" name="confirm-password">
-    
-                <button class="form-button" type="submit">Update Password</button>
+                <input type="password" id="confirm-password" name="confirmPassword" required>
+        
+                <button class="form-button" onclick="updatePassword()">Update Password</button>
             </form>
         </div>
-
         
     
-        <!-- Two-Factor Authentication Section -->
-        <div id="2fa-section" class="settings-section">
-            <h2>Two-Factor Authentication</h2>
-            <p>
-                Enhance your account security by enabling Two-Factor Authentication (2FA). 
-                When enabled, you'll be prompted to enter a verification code in addition to your password.
-            </p> 
-    
-            <form>
-                <div id="2fa-setup">
-                    <h3>Set Up 2FA</h3>
-                    <p>
-                        To enable 2FA, follow these steps:
-                    </p>
-                    <ol>
-                        <li>Download an authenticator app (e.g., Google Authenticator, Authy).</li>
-                        <li>Scan the QR code or enter the key provided below into the app.</li>
-                        <li>Enter the generated code in the field below to complete setup.</li>
-                    </ol>
-    
-                    <label for="qr-code">
-                        QR Code:
-                    </label>
-                    <div id="qr-code">
-                        <img src="images/qr-code.png" alt="QR Code">
-                    </div>
-    
-                    <label for="manual-key">Manual Key:</label>
-                    <input type="text" id="manual-key" value="ABC123XYZ789" readonly>
-    
-                    <label for="verification-code">Verification Code:</label>
-                    <input type="text" id="verification-code" placeholder="Enter code from app">
-    
-                    <button class="form-button" type="submit">Verify and Enable 2FA</button>
-                </div>
-            </form>
-        </div>
-    
-    </div>
+       
 
     <!-- Footer (Shared across all pages) -->
     <footer>
@@ -217,6 +173,165 @@
         </div>
         <script src="/js/main.js"></script>
     </footer>
+
+    <script>
+        document.getElementById('username-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            try {
+                const response = await fetch('/settings/update-username', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: document.getElementById('username').value
+                    })
+                });
+        
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert('Username updated successfully');
+                    location.reload();
+                } else {
+                    alert(data.error || 'Error updating username');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error updating username');
+            }
+        });
+        
+        document.getElementById('password-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            if (newPassword !== confirmPassword) {
+                alert('New passwords do not match');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/settings/update-password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        currentPassword: document.getElementById('current-password').value,
+                        newPassword: newPassword,
+                        confirmPassword: confirmPassword
+                    })
+                });
+        
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert('Password updated successfully');
+                    document.getElementById('password-form').reset();
+                } else {
+                    alert(data.error || 'Error updating password');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error updating password');
+            }
+        });
+
+        async function updateUsername() {
+    try {
+        const newUsername = document.getElementById('username').value;
+        
+        const response = await fetch('/settings/update-username', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: newUsername
+            })
+        });
+
+        const data = await response.json();
+        
+        if (data.success) {
+            alert('Username updated successfully');
+            window.location.reload(); // Force page reload to show new username
+        } else {
+            alert(data.error || 'Error updating username');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error updating username');
+    }
+}
+        </script>
+
+<script>
+    // Password update function
+    async function updatePassword() {
+        const currentPassword = document.getElementById('current-password').value;
+        const newPassword = document.getElementById('new-password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
     
+        if (newPassword !== confirmPassword) {
+            alert('New passwords do not match');
+            return;
+        }
+    
+        try {
+            const response = await fetch('/settings/update-password', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    currentPassword,
+                    newPassword,
+                    confirmPassword
+                })
+            });
+    
+            const data = await response.json();
+            
+            if (data.success) {
+                alert('Password updated successfully');
+                document.getElementById('password-form').reset();
+            } else {
+                alert(data.error || 'Error updating password');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error updating password');
+        }
+    }
+    
+    // Logout function
+    async function logout() {
+        try {
+            const response = await fetch('/logout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+    
+            const data = await response.json();
+            
+            if (data.success) {
+                window.location.href = '/login'; // Redirect to login page
+            } else {
+                alert('Error logging out');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error logging out');
+        }
+    }
+    </script>
+
 </body>
 </html>

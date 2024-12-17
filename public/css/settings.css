@@ -45,6 +45,35 @@
     z-index: 0;
 }
 
+.purchase-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.purchase-item img {
+    width: 100px;  /* Fixed width */
+    height: 100px; /* Fixed height */
+    object-fit: cover; /* Maintains aspect ratio while covering the fixed dimensions */
+    border-radius: 8px;
+}
+
+.purchase-details {
+    flex: 1;
+}
+
+.purchase-details h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+}
+
+.purchase-details p {
+    margin: 5px 0;
+    color: #666;
+}
+
 /* General Settings and Change Password sections occupy 25% each */
 .settings-section.general,
 .settings-section.password {
@@ -52,15 +81,43 @@
     border-right: 1px solid #ddd;
 }
 
-/* Two-Factor Authentication section occupies 50% */
-#2fa-section {
-    flex-basis: 50%; /* Occupy 50% of the width */
+.settings-container {
+    display: flex;
+    flex-wrap: wrap;  /* Add this to allow wrapping */
+    margin: 40px auto;
+    justify-content: space-between;
+    width: 90%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Adjust QR code width */
-#qr-code img {
-    max-width: 50%; /* Better visibility for QR Code */
-    height: auto;
+.logout-section {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#logout-btn {
+    background-color: #dc3545;
+    color: black; 
+    border: none;
+    width: 100%;
+    max-width: none;
+    height: 40px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    line-height: 1;
+    padding: 0; 
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+#logout-btn:hover {
+    background-color: #c82333;
+    background: #c82333;
 }
 
 form {
