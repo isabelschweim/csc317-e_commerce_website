@@ -81,17 +81,6 @@ db.serialize(() => {
         FOREIGN KEY (nft_id) REFERENCES NFTs(id)
     )`);
     
-    db.run(`CREATE TABLE IF NOT EXISTS purchases (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user_id INTEGER NOT NULL,
-        nft_id INTEGER NOT NULL,
-        purchase_date DATETIME DEFAULT CURRENT_TIMESTAMP,
-        credit_card TEXT NOT NULL,
-        ssn TEXT NOT NULL,
-        mothers_maiden_name TEXT NOT NULL,
-        FOREIGN KEY (user_id) REFERENCES users(id),
-        FOREIGN KEY (nft_id) REFERENCES NFTs(id)
-    )`);
 
     db.run(`CREATE TABLE IF NOT EXISTS purchases (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
