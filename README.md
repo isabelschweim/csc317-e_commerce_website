@@ -1,7 +1,7 @@
-# csc317-e_commerce_website
+# An E-commerce Website - CSC 317 Term Project 🛒
 
 # Team name
-Bored Dinosaurs
+🦕 Bored Dinosaurs 🦖
 
 # Members:
 * Tony Wu
@@ -12,12 +12,22 @@ Bored Dinosaurs
 Our store sells rare dinosaur NFTs. Very valuable NFTs.
 You can purchase from our curated selection of non-fungible tokens from our homepage and once checkout is complete, you’ll be provided unique keys to add to your digital wallet.
 
-# dependencies
+# Dependencies
 * npm install
 * npm install express-session
 * npm install bcrypt express-json
 * npm install node-fetch@2
 * npm install dotenv
+
+# How to access the website
+We are still working on deploying the website. <br>
+For now, to access the webpage you need to start the server by running `npm start` in the terminal.
+You then should see the following response: <br>
+<pre>
+Server running on http://localhost:3000
+Connected to the SQLite database.
+</pre>
+and ultimately open the webpage by clicking on the provided link.
 
 # Project Structure 
 <pre>
